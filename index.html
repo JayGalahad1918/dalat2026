@@ -106,6 +106,8 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 .pop:hover .filmimg{filter:none !important}
 @keyframes holo{0%{background-position:0% 50%}100%{background-position:300% 50%}}
 @keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.1)}}
+@keyframes toastin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.toastbox{animation:toastin .25s ease-out both}
 @keyframes spin{to{transform:rotate(360deg)}}
 .vinyl{transform-origin:50% 50%}
 @keyframes qglow{0%,100%{opacity:.75}50%{opacity:1}}
@@ -790,6 +792,12 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 <span style="font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: #f5b301; background: rgba(10,29,20,0.88); padding: 3px 8px; border-radius: 999px; white-space: nowrap"><span id="vinylHint">Chạm để chiếu tiếp</span></span>
 </button>
 </span>
+<span data-show="toast" style="display: none">
+<div role="status" class="toastbox" style="position: fixed; left: 16px; right: 124px; bottom: 30px; z-index: 51; max-width: 360px; padding: 12px 14px; background: #efe3c6; color: #2a2520; border-left: 4px solid #ff7a1a; box-shadow: 0 8px 22px rgba(0,0,0,0.5); font-size: 13px; line-height: 1.5">
+<strong style="display: block; font-family: 'Playfair Display', Georgia, serif; font-size: 16px; margin-bottom: 2px">Phim đang chiếu nè!</strong>
+Chạm vào đĩa than để tạm dừng rồi hẵng tự lướt nha.
+</div>
+</span>
 <span data-show="hasMusic" style="display: none">
 <audio id="bgm" src="assets/dalat-vinyl.mp3" preload="auto" loop="loop"></audio>
 </span>
@@ -847,17 +855,21 @@ a{color:#f5b301}a:hover{color:#ffd35c}
   function stop() {
     if (raf) cancelAnimationFrame(raf); raf = null;
     if (audio) audio.pause();
-    playing = false; render();
+    playing = false; clearTimeout(toastTimer); hideToast(); render();
   }
   document.querySelectorAll('[data-action="toggle"]').forEach(function (btn) {
     btn.addEventListener('click', function () { playing ? stop() : start(); });
   });
-  function interrupt(e) {
-    if (e && e.target && e.target.closest && e.target.closest('button')) return;
-    if (raf) stop();
+  var toastTimer = null;
+  function hideToast() { show('toast', false); }
+  function block(e) {
+    if (!raf) return;
+    if (e.cancelable) e.preventDefault();
+    show('toast', true);
+    clearTimeout(toastTimer); toastTimer = setTimeout(hideToast, 2600);
   }
-  window.addEventListener('wheel', interrupt, { passive: true });
-  window.addEventListener('touchstart', interrupt, { passive: true });
+  window.addEventListener('wheel', block, { passive: false });
+  window.addEventListener('touchmove', block, { passive: false });
   render();
 })();
 
