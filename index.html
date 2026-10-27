@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dalat ngày bình thường!</title>
+<meta name="description" content="Ba ngày Đà Lạt của năm đứa bạn, 4–6/12/2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&amp;family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0f2a1e}
+a{color:#f5b301}a:hover{color:#ffd35c}
+.sprocket{height:14px;background-image:repeating-linear-gradient(90deg,transparent 0 12px,#e9dfc9 12px 24px,transparent 24px 36px);opacity:.85}
+.sprocket-v{width:14px;flex:none;background-image:repeating-linear-gradient(180deg,transparent 0 12px,#e9dfc9 12px 24px,transparent 24px 36px);opacity:.85}
+@keyframes filmv{from{background-position-y:0}to{background-position-y:-360px}}
+.progress{transform:scaleX(0)}
+.sweep{transform-box:view-box;transform-origin:100px 100px}
+.pop:nth-child(5n+1){rotate:-2.5deg}.pop:nth-child(5n+2){rotate:1.5deg}.pop:nth-child(5n+3){rotate:-1deg}.pop:nth-child(5n+4){rotate:2deg}.pop:nth-child(5n){rotate:-1.5deg}
+.pop,.frame{transition:rotate .3s ease,translate .3s ease,scale .3s ease}
+.pop:hover{rotate:0deg;scale:1.04;translate:0 -6px}
+.frame:hover{rotate:-1deg;translate:0 -8px}
+@keyframes rise{from{opacity:0;transform:translateY(56px)}to{opacity:1;transform:none}}
+@keyframes develop{from{filter:sepia(1) brightness(.3) contrast(.7) blur(4px)}to{filter:none}}
+@keyframes stamp{0%{opacity:0;transform:scale(2.6) rotate(var(--r,-8deg))}65%{opacity:1;transform:scale(.9) rotate(var(--r,-8deg))}100%{opacity:1;transform:scale(1) rotate(var(--r,-8deg))}}
+@keyframes film{from{background-position-x:0}to{background-position-x:-360px}}
+@keyframes sweep{to{transform:rotate(360deg)}}
+@keyframes flicker{0%,100%{opacity:1}41%{opacity:.82}43%{opacity:1}70%{opacity:.9}71%{opacity:1}88%{opacity:.94}}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-3%,-2%)}80%{transform:translate(2%,4%)}100%{transform:translate(0,0)}}
+@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes roll{from{opacity:0;transform:translateY(90px)}to{opacity:1;transform:none}}
+@keyframes nudge{0%,100%{transform:translateX(0);opacity:1}50%{transform:translateX(8px);opacity:.5}}
+@keyframes drift{to{transform:translateX(-1440px)}}
+@keyframes roadmove{to{transform:translateX(-120px)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes dash{to{stroke-dashoffset:-64}}
+@keyframes leak{0%,100%{opacity:.3}50%{opacity:.75}}
+@keyframes scratch{0%{background-position:0 0}25%{background-position:-180px 0}50%{background-position:140px 0}75%{background-position:-60px 0}}
+@keyframes fogdrift{0%{transform:translateX(0)}50%{transform:translateX(12%)}100%{transform:translateX(0)}}
+@keyframes expose{0%,100%{opacity:1}30%{opacity:.93}32%{opacity:1}64%{opacity:.96}66%{opacity:1}}
+@keyframes bgpan{from{transform:translateY(0) scale(1.02)}to{transform:translateY(-6%) scale(1.06)}}
+.box{background-color:rgba(12,36,25,0.66);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.hero h1,.hero p{text-shadow:0 2px 18px rgba(0,0,0,.6)}
+@keyframes parallax{from{transform:translateY(-6%)}to{transform:translateY(6%)}}
+.scene-art{position:absolute;left:0;right:0;top:-8%;height:116%;filter:sepia(.32) saturate(.82) contrast(1.06) brightness(.9)}
+.scene-art svg{display:block;width:100%;height:100%}
+.scratches{position:absolute;inset:0;opacity:.4;mix-blend-mode:screen;background-image:linear-gradient(90deg,transparent 0 17%,rgba(242,234,216,.55) 17% 17.08%,transparent 17.08% 61%,rgba(242,234,216,.4) 61% 61.06%,transparent 61.06% 83%,rgba(242,234,216,.3) 83% 83.05%,transparent 83.05%)}
+.leak{position:absolute;inset:0;mix-blend-mode:screen;opacity:.5;background:radial-gradient(circle at 92% 8%,rgba(255,122,26,.55),transparent 38%),radial-gradient(circle at 4% 96%,rgba(245,179,1,.25),transparent 30%)}
+.reel h2,.reel p{text-shadow:0 2px 14px rgba(0,0,0,.7)}
+@media (prefers-reduced-motion:no-preference){
+.fog-a{animation:fogdrift 38s ease-in-out infinite}
+.fog-b{animation:fogdrift 26s ease-in-out infinite reverse}
+.expose{animation:expose 5s steps(1) infinite}
+.drift-1{animation:drift 150s linear infinite}.drift-2{animation:drift 95s linear infinite}.drift-3{animation:drift 60s linear infinite}
+.roadm{animation:roadmove 1.1s linear infinite}
+.bob{animation:bob .9s ease-in-out infinite}
+.floaty{animation:floaty 6s ease-in-out infinite}
+.dashm{animation:dash 1.2s linear infinite}
+.leak{animation:leak 7s ease-in-out infinite}
+.scratches{animation:scratch .45s steps(1) infinite}
+@supports (animation-timeline:view()){
+.scene-art{animation:parallax linear both;animation-timeline:view()}
+.bg-photo{animation:bgpan linear both;animation-timeline:scroll(root)}
+}
+.flicker{animation:flicker 4.5s infinite}
+.sweep{animation:sweep 3s linear infinite}
+.grain{animation:grain .8s steps(1) infinite}
+.nudge{display:inline-block;animation:nudge 1.4s ease-in-out infinite}
+@supports (animation-timeline:view()){
+.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
+.pop{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+.pop:nth-child(2){animation-range:entry 8% cover 32%}.pop:nth-child(3){animation-range:entry 16% cover 36%}.pop:nth-child(4){animation-range:entry 24% cover 40%}.pop:nth-child(5){animation-range:entry 32% cover 44%}
+.develop{animation:develop linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+.run-v{animation:filmv linear both;animation-timeline:view()}
+.frame{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 25%}
+.stamp{animation:stamp linear both;animation-timeline:view();animation-range:entry 60% cover 40%}
+.stamp-i{animation:stamp linear both;animation-timeline:view(inline);animation-range:entry 30% entry 100%}
+.run{animation:film linear both;animation-timeline:view()}
+.progress{animation:grow linear both;animation-timeline:scroll(root)}
+.credits{animation:roll linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+}
+}
+@media (max-width:640px){
+.hero{min-height:min(100svh,860px);box-sizing:border-box;padding:56px 16px 40px !important;gap:28px !important;align-content:center}
+.hero-leader{width:140px;height:140px}
+.sec{padding-left:16px !important;padding-right:16px !important}
+.h2m{font-size:30px !important}
+.h3m{font-size:26px !important}
+.cast{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:14px !important}
+.cast{gap:12px !important}
+.cname{font-size:18px !important}
+.reel{padding:96px 0 48px !important}
+.reel-head{padding:0 16px 16px !important}
+.reel-film{padding:0 12px !important}
+.reel-film > div{gap:8px !important;padding:10px 6px !important}
+.sprocket-v{width:10px}
+.frames{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+.frame{padding:10px 9px 12px !important}
+.frame-img{height:96px !important}
+.clap{width:72px;height:61px}
+.fstamp{font-size:11.5px !important}
+.ft{font-size:13px !important}
+.fs{font-size:11.5px !important}
+.box{padding:20px !important}
+.credits{padding:72px 16px 96px !important}
+}
+.filmimg{transition:filter .6s ease}
+.pop:hover .filmimg{filter:none !important}
+@keyframes holo{0%{background-position:0% 50%}100%{background-position:300% 50%}}
+@keyframes twinkle{0%,100%{opacity:.2;transform:scale(.6)}50%{opacity:1;transform:scale(1.1)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl{transform-origin:50% 50%}
+@keyframes qglow{0%,100%{opacity:.75}50%{opacity:1}}
+@media (prefers-reduced-motion:no-preference){
+.ssr{animation:holo 5s linear infinite}
+.spark{animation:twinkle 2.2s ease-in-out infinite}
+.qmark{animation:qglow 2.6s ease-in-out infinite}
+.vinyl{animation:spin 1.8s linear infinite}
+.cgrain{animation:grain .7s steps(1) infinite}
+}
+</style>
+</head>
+<body>
+<main style="background: transparent; color: #f2ead8; font-family: 'IBM Plex Mono', ui-monospace, monospace; min-height: 100vh; overflow-x: clip">
+<div class="progress" aria-hidden="true" style="position: fixed; top: 0; left: 0; right: 0; height: 3px; background: #ff7a1a; transform-origin: 0 50%; z-index: 40"></div>
+<div aria-hidden="true" style="position: fixed; inset: 0; z-index: -1; overflow: hidden; background: #0f2a1e; pointer-events: none">
+<div class="bg-photo" style="position: absolute; left: 0; right: 0; top: -4%; height: 112%">
+<img class="expose" src="assets/pine-fog.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; display: block; filter: sepia(0.38) saturate(0.7) contrast(1.08) brightness(0.86)">
+</div>
+<div class="fog fog-a" style="position: absolute; top: 18%; left: -30%; width: 160%; height: 34%; background: radial-gradient(ellipse at 30% 50%, rgba(240,236,224,0.5), transparent 60%), radial-gradient(ellipse at 75% 40%, rgba(240,236,224,0.4), transparent 55%)"></div>
+<div class="fog fog-b" style="position: absolute; top: 52%; left: -30%; width: 160%; height: 30%; background: radial-gradient(ellipse at 60% 50%, rgba(240,236,224,0.4), transparent 60%), radial-gradient(ellipse at 15% 60%, rgba(240,236,224,0.3), transparent 50%)"></div>
+<div style="position: absolute; inset: 0; background: #efe1bf; mix-blend-mode: soft-light; opacity: 0.55"></div>
+<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,34,24,0.58) 0%, rgba(11,34,24,0.5) 45%, rgba(11,34,24,0.62) 100%)"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 50%, rgba(8,20,14,0.75) 100%)"></div>
+</div>
+<div aria-hidden="true" style="position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden">
+<div class="scratches"></div>
+<div class="grain" style="position: absolute; inset: -20%; opacity: 0.17">
+<svg width="100%" height="100%"><filter id="filmgrain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#filmgrain)"></rect></svg>
+</div>
+</div>
+
+<header class="hero" style="max-width: 1120px; margin: 0 auto; padding: 72px 20px 64px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center; justify-content: space-between">
+<div style="flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; text-transform: uppercase; color: #f5b301">· Kodak 400 · 3 cuộn<span style="letter-spacing: 3.9px"> · KÉO TỚI HẾT NHÉ</span><span style="letter-spacing: 3.9px"> ·</span></p>
+<h1 class="flicker" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(44px, 8vw, 92px); line-height: 1.02; color: #f2ead8">Dalat ngày bình thường!</h1>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #cfc4ae; max-width: 560px">Tới Đà Lạt, nhẹ nhàng ngắm mọi thứ thôi nha. Thong dong, từ tốn ngắm mọi thứ. Đừng hỏi tôi làm gì, tôi cũng không biết đâu!</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 14px; color: #cfc4ae"><span style="border: 1px solid rgb(245, 179, 1); color: rgb(245, 179, 1); padding: 8px 14px; border-radius: 2px">KHỞI CHIẾU 22:00 · 03.12.2026<br>(Tối thứ 5 đó nhen)</span><span>Sài Gòn → Đà Lạt</span></div>
+<button type="button" data-action="toggle" aria-pressed="false" id="playBtn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 52px; padding: 10px 22px 10px 12px; border: 2px solid #f5b301; border-radius: 999px; background: rgba(245,179,1,0.12); color: #f5b301; font-family: inherit; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; box-shadow: 0 0 18px rgba(245,179,1,0.25)">
+<span style="width: 34px; height: 34px; border-radius: 50%; background: #f5b301; display: flex; align-items: center; justify-content: center; flex: none">
+<span data-show="playing" style="display: none"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" fill="#0f2a1e"></rect><rect x="8.5" y="1" width="3.5" height="12" fill="#0f2a1e"></rect></svg></span>
+<span data-show="notPlaying" style="display: contents"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1 L13 7 L3 13 Z" fill="#0f2a1e"></path></svg></span>
+</span>
+<span id="playLabel">BẮT ĐẦU CHIẾU</span>
+</button>
+</div>
+<div style="flex: 1 1 300px; display: flex; flex-direction: column; align-items: center; gap: 20px">
+<svg class="hero-leader" width="200" height="200" viewBox="0 0 200 200" aria-hidden="true">
+<circle cx="100" cy="100" r="92" fill="none" stroke="#f2ead8" stroke-width="2"></circle>
+<circle cx="100" cy="100" r="72" fill="none" stroke="#f2ead8" stroke-width="1.5" opacity="0.6"></circle>
+<line x1="100" y1="2" x2="100" y2="198" stroke="#f2ead8" stroke-width="1.5" opacity="0.6"></line>
+<line x1="2" y1="100" x2="198" y2="100" stroke="#f2ead8" stroke-width="1.5" opacity="0.6"></line>
+<path class="sweep" d="M100 100 L100 8 A92 92 0 0 1 187 128 Z" fill="#f5b301" opacity="0.22"></path>
+<text x="100" y="128" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="84" font-weight="700" fill="#f2ead8" id="leader">3</text>
+</svg>
+<span data-show="started" style="display: none">
+<p style="margin: 0; font-size: 20px; color: #ff7a1a; letter-spacing: 0.2em">ĐANG CHIẾU</p>
+</span>
+<span data-show="counting" style="display: contents">
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; width: 100%; max-width: 320px" role="timer" aria-label="Đếm ngược tới giờ lên xe">
+<div style="display: flex; flex-direction: column; align-items: center; background: #16392a; border: 1px solid #2f5a43; padding: 10px 4px"><span style="font-size: 28px; font-weight: 600; color: #ff7a1a"><span data-cd="d">--</span></span><span style="font-size: 11px; color: #b8ad98">NGÀY</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; background: #16392a; border: 1px solid #2f5a43; padding: 10px 4px"><span style="font-size: 28px; font-weight: 600; color: #ff7a1a"><span data-cd="h">--</span></span><span style="font-size: 11px; color: #b8ad98">GIỜ</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; background: #16392a; border: 1px solid #2f5a43; padding: 10px 4px"><span style="font-size: 28px; font-weight: 600; color: #ff7a1a"><span data-cd="m">--</span></span><span style="font-size: 11px; color: #b8ad98">PHÚT</span></div>
+<div style="display: flex; flex-direction: column; align-items: center; background: #16392a; border: 1px solid #2f5a43; padding: 10px 4px"><span style="font-size: 28px; font-weight: 600; color: #ff7a1a"><span data-cd="s">--</span></span><span style="font-size: 11px; color: #b8ad98">GIÂY</span></div>
+</div>
+</span>
+</div>
+</header>
+
+<section class="sec" style="max-width: 1120px; margin: 0 auto; padding: 24px 20px 56px">
+<p style="margin: 0 0 8px; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">AI SẼ THAM DỰ?</p>
+<h2 class="reveal h2m" style="margin: 0 0 28px; font-family: 'Playfair Display', Georgia, serif; font-size: 40px; color: #f2ead8">Dalat 2026</h2>
+<div class="cast" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 20px">
+<svg width="0" height="0" aria-hidden="true" style="position: absolute"><filter id="castgrain"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter></svg>
+<figure class="pop" style="margin: 0; background: #f2ead8; padding: 10px 10px 12px; color: #2a2520; box-shadow: 0 6px 18px rgba(0,0,0,0.35)">
+<div class="develop" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #2a241e">
+<img class="filmimg" src="assets/tan.jpg" alt="Ảnh của Tân" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
+<div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 85% 12%, rgba(255,122,26,0.6), transparent 42%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
+<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 12A</span></div>
+<figcaption style="padding-top: 6px; display: flex; flex-direction: column; gap: 3px">
+<span class="cname" style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.1">Tân</span>
+<span style="font-size: 12px; color: #6b5a45; line-height: 1.45">Taanhuyn</span>
+</figcaption>
+</figure>
+<figure class="pop" style="margin: 0; background: #f2ead8; padding: 10px 10px 12px; color: #2a2520; box-shadow: 0 6px 18px rgba(0,0,0,0.35)">
+<div class="develop" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #2a241e">
+<img class="filmimg" src="assets/quan.jpg" alt="Ảnh của Quân" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
+<div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 12% 20%, rgba(255,122,26,0.6), transparent 42%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
+<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 13A</span></div>
+<figcaption style="padding-top: 6px; display: flex; flex-direction: column; gap: 3px">
+<span class="cname" style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.1">Quân</span>
+
+</figcaption>
+</figure>
+<figure class="pop" style="margin: 0; background: #f2ead8; padding: 10px 10px 12px; color: #2a2520; box-shadow: 0 6px 18px rgba(0,0,0,0.35)">
+<div class="develop" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #2a241e">
+<img class="filmimg" src="assets/my.jpg" alt="Ảnh của My" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
+<div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 88% 18%, rgba(255,122,26,0.6), transparent 42%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
+<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 14A</span></div>
+<figcaption style="padding-top: 6px; display: flex; flex-direction: column; gap: 3px">
+<span class="cname" style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.1">My</span>
+<span style="font-size: 12px; color: #6b5a45; line-height: 1.45">Em My · sao cũng được, gì cũng oke</span>
+</figcaption>
+</figure>
+<figure class="pop" style="margin: 0; background: #f2ead8; padding: 10px 10px 12px; color: #2a2520; box-shadow: 0 6px 18px rgba(0,0,0,0.35)">
+<div class="develop" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #2a241e">
+<img class="filmimg" src="assets/hoa.jpg" alt="Ảnh của Hoa" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
+<div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 10% 10%, rgba(255,122,26,0.6), transparent 42%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
+<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 15A</span></div>
+<figcaption style="padding-top: 6px; display: flex; flex-direction: column; gap: 3px">
+<span class="cname" style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.1">Hoa</span>
+<span style="font-size: 12px; color: #6b5a45; line-height: 1.45">Bạn Hoa xinh đẹp · bay 1000 cây số để đi cùng mọi ngừi</span>
+</figcaption>
+</figure>
+<figure class="pop" style="margin: 0; background: #f2ead8; padding: 10px 10px 12px; color: #2a2520; box-shadow: 0 6px 18px rgba(0,0,0,0.35)">
+<div class="develop" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #2a241e">
+<img class="filmimg" src="assets/nha.jpg" alt="Ảnh của Nhã" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
+<div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 90% 85%, rgba(255,122,26,0.6), transparent 42%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
+<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 16A</span></div>
+<figcaption style="padding-top: 6px; display: flex; flex-direction: column; gap: 3px">
+<span class="cname" style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.1">Nhã</span>
+<span style="font-size: 12px; color: #6b5a45; line-height: 1.45">Lợn · làm ít ăn nhiều, lười nhưng ăn cả thế giới</span>
+</figcaption>
+</figure>
+<figure class="pop ssr" style="margin: 0; padding: 3px; background: linear-gradient(120deg, #ff7a1a, #f5b301, #8ff0c8, #7aa8ff, #d48bff, #ff7a1a); background-size: 300% 300%; box-shadow: 0 6px 22px rgba(245,179,1,0.35)">
+<div style="height: 100%; box-sizing: border-box; background: #0f2a1e; padding: 10px 10px 12px; display: flex; flex-direction: column">
+<div style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: radial-gradient(circle at 50% 38%, #2f5a43, #0a1d14 75%); display: flex; align-items: flex-end; justify-content: center">
+<svg width="78%" viewBox="0 0 120 140" aria-hidden="true">
+<circle cx="60" cy="48" r="28" fill="#06140d" opacity="0.9"></circle>
+<path d="M8 140 Q8 88 60 88 Q112 88 112 140 Z" fill="#06140d" opacity="0.9"></path>
+<text class="qmark" x="60" y="62" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="40" font-weight="700" fill="#f5b301">?</text>
+</svg>
+<svg aria-hidden="true" viewBox="0 0 100 133" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<path class="spark" d="M18 30 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2 Z" fill="#f5b301" style="transform-origin: 18px 38px"></path>
+<path class="spark" d="M82 22 l1.5 4.5 4.5 1.5 -4.5 1.5 -1.5 4.5 -1.5 -4.5 -4.5 -1.5 4.5 -1.5 Z" fill="#8ff0c8" style="transform-origin: 82px 28px; animation-delay: .7s"></path>
+<path class="spark" d="M76 74 l1.5 4.5 4.5 1.5 -4.5 1.5 -1.5 4.5 -1.5 -4.5 -4.5 -1.5 4.5 -1.5 Z" fill="#d48bff" style="transform-origin: 76px 80px; animation-delay: 1.3s"></path>
+</svg>
+<span style="position: absolute; top: 8px; left: 8px; padding: 2px 8px; font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; font-style: italic; color: #2a1a05; background: linear-gradient(135deg, #fff1b8, #f5b301 45%, #c47f00); border: 1.5px solid #fff1b8; box-shadow: 0 0 10px rgba(245,179,1,0.7)">SSR</span>
+<span class="stamp" style="--r: 8deg; position: absolute; right: 8px; bottom: 12px; transform: rotate(8deg); border: 2px solid #ff7a1a; color: #ff7a1a; background: rgba(15,42,30,0.75); padding: 2px 7px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; white-space: nowrap">CHƯA CONFIRM</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8ff0c8">LIMITED<span>▸ 00X</span></div>
+<figcaption style="padding-top: 6px; display: flex; flex-direction: column; gap: 3px; color: #f2ead8">
+<span class="cname" style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.1">Thành viên bí ẩn</span>
+<span style="font-size: 12px; color: #cfc4ae; line-height: 1.45">Tỉ lệ xuất hiện: chưa rõ. Có đi không nói một câu!</span>
+</figcaption>
+</div>
+</figure>
+</div>
+</section>
+
+<section class="reveal sec" style="max-width: 1120px; margin: 0 auto; padding: 64px 20px 24px; display: flex; flex-wrap: wrap; gap: 24px">
+<div class="box" style="flex: 1 1 320px; min-width: 0; border: 1px solid #2f5a43; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">BỐI CẢNH</p>
+<h3 class="h3m" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px">Wind In Dalat</h3>
+<figure class="pop" style="margin: 0; position: relative; background: #f2ead8; padding: 10px 10px 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.35)">
+<div class="develop" style="position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: #2a241e">
+<img class="filmimg" src="assets/house.jpg" alt="Mặt tiền căn nhà ở 22 Ngô Huy Diễn lúc chập tối: tường gạch, cổng sắt trắng, cửa sổ sáng đèn vàng, cây thông bên cạnh" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
+<div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 92% 6%, rgba(255,122,26,0.55), transparent 40%), radial-gradient(circle at 4% 96%, rgba(245,179,1,0.25), transparent 30%)"></div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
+<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
+<span class="stamp" style="--r: -7deg; position: absolute; top: 12px; left: 10px; transform: rotate(-7deg); border: 2px solid #ff7a1a; color: #ff7a1a; background: rgba(15,42,30,0.75); padding: 3px 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; white-space: nowrap">DỰ KIẾN</span>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 00A</span></div>
+</figure>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #cfc4ae">Nhà chung dự kiến ở <a href="https://www.google.com/maps/search/?api=1&amp;query=Wind%20In%20Dalat%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener">22 Ngô Huy Diễn, Cam Ly</a>. Gần trung tâm, có sân trước để ngồi quây quần và nướng BBQ.</p>
+<p style="margin: 0; font-size: 12px; color: #b8ad98">Nhớ hỏi chủ nhà: cho gửi đồ lúc 6h sáng · chăn ấm · ~2tr/đêm</p>
+</div>
+
+</section>
+
+<section class="reveal sec" style="max-width: 1120px; margin: 0 auto; padding: 8px 20px 24px">
+<a href="map.html" style="display: flex; align-items: center; gap: 16px; padding: 16px 18px; min-height: 44px; background: #efe3c6; color: #2a2520; text-decoration: none; box-shadow: 0 8px 22px rgba(0,0,0,0.4)">
+<svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true" style="flex: none"><path d="M4 10 L15 6 L29 11 L40 7 V34 L29 38 L15 33 L4 37 Z" fill="none" stroke="#2f5a43" stroke-width="2" stroke-linejoin="round"></path><path d="M15 6 V33 M29 11 V38" stroke="#2f5a43" stroke-width="1.5"></path><circle cx="10" cy="20" r="3" fill="#b45309"></circle><circle cx="22" cy="24" r="3" fill="#9f1239"></circle><circle cx="34" cy="18" r="3" fill="#1d4ed8"></circle></svg>
+<span style="display: flex; flex-direction: column; gap: 2px; flex: 1">
+<span style="font-size: 12px; letter-spacing: 0.2em; color: #6b5a45">BẢN ĐỒ HÀNH TRÌNH</span>
+<span style="font-family: 'Playfair Display', Georgia, serif; font-size: 22px; font-weight: 700; line-height: 1.2">Xem cả 3 ngày trên bản đồ</span>
+</span>
+<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex: none"><path d="M7 4 L13 10 L7 16" fill="none" stroke="#2a2520" stroke-width="2"></path></svg>
+</a>
+</section>
+
+<section class="reel" style="position: relative; overflow: hidden; padding: 150px 0 80px">
+<div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%)">
+<div class="scene-art">
+
+<svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky0" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b111c"></stop><stop offset="0.7" stop-color="#2b2233"></stop><stop offset="1" stop-color="#3d2a2a"></stop></linearGradient>
+<filter id="bok0" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"></feGaussianBlur></filter>
+</defs>
+<rect width="1440" height="800" fill="url(#sky0)"></rect>
+<g fill="#f2ead8"><circle cx="120" cy="90" r="1.6"></circle><circle cx="260" cy="170" r="1.2"></circle><circle cx="420" cy="70" r="1.8"></circle><circle cx="560" cy="210" r="1.1"></circle><circle cx="700" cy="110" r="1.5"></circle><circle cx="860" cy="60" r="1.2"></circle><circle cx="980" cy="200" r="1.6"></circle><circle cx="1320" cy="90" r="1.4"></circle><circle cx="1390" cy="240" r="1.1"></circle><circle cx="640" cy="300" r="1"></circle></g>
+<circle cx="1180" cy="140" r="36" fill="#f2ead8" opacity="0.85"></circle>
+<circle cx="1196" cy="130" r="32" fill="#0d1320"></circle>
+<path d="M620 610 Q760 470 880 540 Q1000 450 1120 520 Q1260 430 1440 500 V610 Z" fill="#161b26"></path>
+<g fill="#10141c"><polygon points="900,540 884,590 916,590"></polygon><polygon points="1000,470 980,540 1020,540"></polygon><polygon points="1030,490 1014,550 1046,550"></polygon><polygon points="1260,450 1240,520 1280,520"></polygon><polygon points="1300,470 1284,530 1316,530"></polygon></g>
+<path d="M0 610 V520 H70 V470 H130 V540 H190 V490 H260 V430 H300 V500 H380 V540 H440 V480 H520 V530 H600 V610 Z" fill="#0c0f16"></path>
+<g fill="#f5b301" opacity="0.55"><rect x="84" y="486" width="8" height="10"></rect><rect x="106" y="506" width="8" height="10"></rect><rect x="270" y="450" width="8" height="10"></rect><rect x="282" y="476" width="8" height="10"></rect><rect x="460" y="496" width="8" height="10"></rect><rect x="210" y="506" width="8" height="10"></rect></g>
+<rect y="610" width="1440" height="190" fill="#0e0d10"></rect>
+<g class="roadm"><path d="M0 712 H1680" stroke="#f5b301" stroke-width="6" stroke-dasharray="60 60" opacity="0.6"></path></g>
+<g class="bob">
+<rect x="150" y="560" width="330" height="96" rx="18" fill="#221d22"></rect>
+<rect x="172" y="574" width="270" height="22" rx="4" fill="#f5b301" opacity="0.75"></rect>
+<rect x="172" y="604" width="270" height="18" rx="4" fill="#ff7a1a" opacity="0.45"></rect>
+<rect x="452" y="574" width="22" height="48" rx="6" fill="#f2ead8" opacity="0.5"></rect>
+<circle cx="220" cy="660" r="20" fill="#0a090b"></circle><circle cx="410" cy="660" r="20" fill="#0a090b"></circle>
+<path d="M480 630 L760 600 L760 690 L480 650 Z" fill="#f5b301" opacity="0.08"></path>
+</g>
+<g class="floaty" filter="url(#bok0)"><circle cx="620" cy="400" r="22" fill="#ff7a1a" opacity="0.5"></circle><circle cx="760" cy="350" r="14" fill="#f5b301" opacity="0.6"></circle><circle cx="1360" cy="380" r="26" fill="#ff7a1a" opacity="0.4"></circle><circle cx="80" cy="330" r="18" fill="#f5b301" opacity="0.45"></circle></g>
+</svg>
+
+
+
+
+</div>
+<div class="leak"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%)"></div>
+</div>
+<div class="reveal reel-head" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">CUỘN 00</p>
+<h2 class="h2m" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 40px; color: #f2ead8">Lên xe</h2>
+<p style="margin: 0; font-size: 14px; color: #e3d9c4">Tối thứ Năm · 03.12</p>
+<p style="margin: 0; font-size: 13px; color: #e3d9c4">22:00</p>
+</div>
+<div class="reel-film" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px">
+<div style="display: flex; gap: 14px; background: rgba(10,29,20,0.82); padding: 14px 12px">
+<div class="sprocket-v run-v"></div>
+<div class="frames" style="flex: 1; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding: 6px 0">
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 03 · 22:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe khách</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Lên xe đi Đà Lạt</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">An Anh Limousine</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=An%20Anh%20Limousine%2095%20Nguy%E1%BB%85n%20Duy%20D%C6%B0%C6%A1ng%20Qu%E1%BA%ADn%205" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">95 Nguyễn Duy Dương, Q5, TP.HCM</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Mỗi người 1 giường, giường đôi, siêu to, nằm bao đã ~</span>
+</article>
+</div>
+<div class="sprocket-v run-v"></div>
+</div>
+</div>
+</section>
+<section class="reel" style="position: relative; overflow: hidden; padding: 150px 0 80px">
+<div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%)">
+<div class="scene-art">
+
+
+<svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#36423e"></stop><stop offset="0.55" stop-color="#7f8a7e"></stop><stop offset="1" stop-color="#a9a693"></stop></linearGradient>
+<filter id="fog1" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="22"></feGaussianBlur></filter>
+<g id="fog1a"><ellipse cx="0" cy="0" rx="220" ry="34"></ellipse><ellipse cx="300" cy="14" rx="260" ry="40"></ellipse><ellipse cx="640" cy="-6" rx="230" ry="36"></ellipse><ellipse cx="960" cy="16" rx="270" ry="42"></ellipse><ellipse cx="1240" cy="0" rx="220" ry="34"></ellipse><ellipse cx="1440" cy="0" rx="220" ry="34"></ellipse></g>
+</defs>
+<rect width="1440" height="800" fill="url(#sky1)"></rect>
+<circle cx="1040" cy="250" r="54" fill="#f2ead8" opacity="0.5"></circle>
+<path d="M0 470 Q240 380 480 440 Q720 360 960 430 Q1200 370 1440 420 V800 H0 Z" fill="#5c6a63"></path>
+<g class="drift-1" filter="url(#fog1)" fill="#e9e4d6" opacity="0.55"><use href="#fog1a" y="455"></use><use href="#fog1a" x="1440" y="455"></use></g>
+<path d="M0 560 Q300 470 620 540 Q900 480 1180 550 Q1320 520 1440 540 V800 H0 Z" fill="#43524b"></path>
+<g fill="#33403a"><polygon points="140,500 118,560 162,560"></polygon><polygon points="180,520 162,566 198,566"></polygon><polygon points="700,500 680,550 720,550"></polygon><polygon points="740,490 718,548 762,548"></polygon><polygon points="1100,510 1082,556 1118,556"></polygon><polygon points="1380,500 1360,548 1400,548"></polygon></g>
+<path d="M0 650 Q400 600 800 640 Q1100 610 1440 630 V800 H0 Z" fill="#2c3732"></path>
+<g fill="#3a2f26"><rect x="300" y="600" width="70" height="44"></rect><polygon points="292,602 335,572 378,602"></polygon><rect x="420" y="612" width="56" height="36"></rect><polygon points="414,614 448,590 482,614"></polygon><rect x="980" y="596" width="74" height="46"></rect><polygon points="972,598 1017,566 1062,598"></polygon></g>
+<g fill="#f5b301" opacity="0.8"><rect x="316" y="614" width="12" height="12"></rect><rect x="342" y="614" width="12" height="12"></rect><rect x="440" y="622" width="10" height="10"></rect><rect x="998" y="610" width="12" height="12"></rect><rect x="1026" y="610" width="12" height="12"></rect></g>
+<g class="drift-3" filter="url(#fog1)" fill="#e9e4d6" opacity="0.6"><use href="#fog1a" y="660"></use><use href="#fog1a" x="1440" y="660"></use></g>
+</svg>
+
+
+
+</div>
+<div class="leak"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%)"></div>
+</div>
+<div class="reveal reel-head" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">CUỘN 01</p>
+<h2 class="h2m" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px; color: #f2ead8">Ngày nào cũng như ngày đầu</h2>
+<p style="margin: 0; font-size: 14px; color: #e3d9c4">Thứ Sáu · 04.12</p>
+<p style="margin: 0; font-size: 13px; color: #e3d9c4">10 cảnh · ~50 km</p>
+</div>
+<div class="reel-film" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px">
+<div style="display: flex; gap: 14px; background: rgba(10,29,20,0.82); padding: 14px 12px">
+<div class="sprocket-v run-v"></div>
+<div class="frames" style="flex: 1; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding: 6px 0">
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ bến xe An Anh (4C Yersin):</span> <strong>~3 km · ~10 phút</strong></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 06:00</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Về nhà gửi đồ</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Nhà chung · Wind In Dalat</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Wind%20In%20Dalat%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">22 Ngô Huy Diễn, Cam Ly</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Xe di chuyển từ bến về nhà, sau đó thuê xe máy. Trong lúc đó thì oánh răng, dửa mặt.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~1 km · ~5 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Ph%C6%B0%E1%BB%A3ng%20Lan%202009%2C%20L%C3%B4%205%20Ho%C3%A0ng%20V%C4%83n%20Th%E1%BB%A5%2C%20P.4%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 07:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn sáng</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Phượng Lan 2009</span>
+<a class="fs" href="https://maps.app.goo.gl/rjMjZNR5pUYAHWdS9" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Lô 5 Hoàng Văn Thụ, P.4</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Bún bò, bún riêu, bò kho.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~2,5 km · ~10 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Ph%C6%B0%E1%BB%A3ng%20Lan%202009%2C%20L%C3%B4%205%20Ho%C3%A0ng%20V%C4%83n%20Th%E1%BB%A5%2C%20P.4%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Quyen.haus%2C%20360/30%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 08:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Cà phê</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Quyen.haus</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Quyen.haus%20360/30%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">360/30 Phan Đình Phùng, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Đẹp theo kiểu ấm áp, nhẹ nhàng, Đà Lạt cũ mà mới á.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~6 km · ~20 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Quyen.haus%2C%20360/30%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Romantic%20Grove%20%E2%80%93%20Bistro%20%26%20Coffee%2C%20H%E1%BA%BBm%2032%20%C4%90%C6%B0%E1%BB%9Dng%203/4%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 10:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Cà phê</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Romantic Grove – Bistro &amp; Coffee</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Romantic%20Grove%20%E2%80%93%20Bistro%20%26%20Coffee%20H%E1%BA%BBm%2032%20%C4%90%C6%B0%E1%BB%9Dng%203/4%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Hẻm 32 Đường 3/4, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Hơi sít rịt, xui thì plan B ngay cạnh, hên thì tuyệt vời lắm á.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>Tại chỗ</strong></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 12:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn trưa</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Romantic Grove</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Romantic%20Grove%20H%E1%BA%BBm%2032%20%C4%90%C6%B0%E1%BB%9Dng%203/4%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Hẻm 32 Đường 3/4, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Ăn trưa tại đó luôn.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~4,5 km · ~15 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Romantic%20Grove%2C%20H%E1%BA%BBm%2032%20%C4%90%C6%B0%E1%BB%9Dng%203/4%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 14:00</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Nhận phòng</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Nhà chung · Wind In Dalat</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Wind%20In%20Dalat%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">22 Ngô Huy Diễn, Cam Ly</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Nhận phòng, thay đồ rồi đi Mongoland.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~12 km · ~30–35 phút, qua đèo</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Mongoland%2C%20T%E1%BB%95%2016%2C%20th%C3%B4n%201%2C%20T%C3%A0%20Nung%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 15:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Chụp ảnh</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Mongoland</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Mongoland%20T%E1%BB%95%2016%2C%20th%C3%B4n%201%2C%20T%C3%A0%20Nung%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Tổ 16, thôn 1, Tà Nung</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Mở cửa tới 17:30, chạy qua đèo nên đi sớm chút.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~12 km · ~35 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Mongoland%2C%20T%E1%BB%95%2016%2C%20th%C3%B4n%201%2C%20T%C3%A0%20Nung%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 17:00</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Về nhà</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Nhà chung · Wind In Dalat</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Wind%20In%20Dalat%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">22 Ngô Huy Diễn, Cam Ly</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Thay đồ xong đi ăn uống.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~3,5 km · ~15 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Pacho%20Pocha%2C%2063A%20An%20B%C3%ACnh%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 18:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Grab</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn tối</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Pacho Pocha</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Pacho%20Pocha%2063A%20An%20B%C3%ACnh%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">63A An Bình, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Nhậu kiểu người Hàn.</span>
+<span style="margin-top: 2px; font-size: 12px; color: #2a2520; background: #f5b301; padding: 5px 7px; line-height: 1.4">DỰ PHÒNG: Bữa Tối – Rice &amp; Grill</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~3 km · ~10 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Pacho%20Pocha%2C%2063A%20An%20B%C3%ACnh%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Qu%E1%BA%A3ng%20tr%C6%B0%E1%BB%9Dng%20L%C3%A2m%20Vi%C3%AAn%2C%20Tr%E1%BA%A7n%20Qu%E1%BB%91c%20To%E1%BA%A3n%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 04 · 20:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Grab</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Đi dạo</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Quảng trường Lâm Viên</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Qu%E1%BA%A3ng%20tr%C6%B0%E1%BB%9Dng%20L%C3%A2m%20Vi%C3%AAn%20Tr%E1%BA%A7n%20Qu%E1%BB%91c%20To%E1%BA%A3n%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Trần Quốc Toản, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Ăn xong đi dạo quảng trường.</span>
+</article>
+</div>
+<div class="sprocket-v run-v"></div>
+</div>
+</div>
+</section>
+<section class="reel" style="position: relative; overflow: hidden; padding: 150px 0 80px">
+<div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%)">
+<div class="scene-art">
+
+
+
+<svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141d33"></stop><stop offset="0.35" stop-color="#3b3a5c"></stop><stop offset="0.55" stop-color="#a06a72"></stop><stop offset="0.68" stop-color="#e5a070"></stop><stop offset="0.82" stop-color="#f2cf9a"></stop></linearGradient>
+<filter id="cl2" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="14"></feGaussianBlur></filter>
+<filter id="glow2" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"></feGaussianBlur></filter>
+<g id="cl2a"><ellipse cx="0" cy="0" rx="170" ry="50"></ellipse><ellipse cx="190" cy="-18" rx="150" ry="58"></ellipse><ellipse cx="380" cy="6" rx="190" ry="52"></ellipse><ellipse cx="600" cy="-22" rx="170" ry="62"></ellipse><ellipse cx="820" cy="4" rx="200" ry="54"></ellipse><ellipse cx="1040" cy="-16" rx="160" ry="58"></ellipse><ellipse cx="1240" cy="8" rx="190" ry="50"></ellipse><ellipse cx="1440" cy="0" rx="170" ry="50"></ellipse></g>
+</defs>
+<rect width="1440" height="800" fill="url(#sky2)"></rect>
+<g fill="#f2ead8" opacity="0.7"><circle cx="200" cy="80" r="1.4"></circle><circle cx="520" cy="130" r="1.2"></circle><circle cx="980" cy="70" r="1.6"></circle><circle cx="1300" cy="150" r="1.2"></circle></g>
+<circle cx="720" cy="480" r="150" fill="#ffd9a0" opacity="0.55" filter="url(#glow2)"></circle>
+<circle cx="720" cy="490" r="46" fill="#fff0d0"></circle>
+<g class="drift-1" filter="url(#cl2)" fill="#e9c4b0" opacity="0.6"><use href="#cl2a" y="500"></use><use href="#cl2a" x="1440" y="500"></use></g>
+<g class="drift-2" filter="url(#cl2)" fill="#f2e0cc" opacity="0.85"><use href="#cl2a" y="570"></use><use href="#cl2a" x="1440" y="570"></use></g>
+<path d="M0 800 V560 Q140 520 260 600 Q380 660 540 800 Z" fill="#11141c"></path>
+<path d="M1440 800 V520 Q1300 470 1180 560 Q1060 640 920 800 Z" fill="#11141c"></path>
+<g fill="#0b0d13"><polygon points="300,560 280,624 320,624"></polygon><polygon points="340,590 322,646 358,646"></polygon><polygon points="1150,520 1128,590 1172,590"></polygon><polygon points="1200,500 1178,566 1222,566"></polygon><polygon points="1250,505 1232,560 1268,560"></polygon></g>
+<g fill="#0b0d13"><circle cx="92" cy="530" r="5"></circle><rect x="87" y="536" width="10" height="20" rx="3"></rect><circle cx="114" cy="528" r="5"></circle><rect x="109" y="534" width="10" height="21" rx="3"></rect><circle cx="136" cy="529" r="5"></circle><rect x="131" y="535" width="10" height="20" rx="3"></rect><circle cx="158" cy="532" r="5"></circle><rect x="153" y="538" width="10" height="19" rx="3"></rect><circle cx="180" cy="537" r="5"></circle><rect x="175" y="543" width="10" height="19" rx="3"></rect></g>
+<g class="drift-3" filter="url(#cl2)" fill="#f2ead8" opacity="0.95"><use href="#cl2a" y="680"></use><use href="#cl2a" x="1440" y="680"></use></g>
+</svg>
+
+
+</div>
+<div class="leak"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%)"></div>
+</div>
+<div class="reveal reel-head" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">CUỘN 02</p>
+<h2 class="h2m" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 40px; color: #f2ead8">Đỉnh mây</h2>
+<p style="margin: 0; font-size: 14px; color: #e3d9c4">Thứ Bảy · 05.12</p>
+<p style="margin: 0; font-size: 13px; color: #e3d9c4">8 cảnh · ~39 km</p>
+</div>
+<div class="reel-film" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px">
+<div style="display: flex; gap: 14px; background: rgba(10,29,20,0.82); padding: 14px 12px">
+<div class="sprocket-v run-v"></div>
+<div class="frames" style="flex: 1; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding: 6px 0">
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ nhà:</span> <strong>~11 km · ~35 phút chạy xe, rồi leo bộ</strong></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 04:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Săn mây</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Đỉnh Hòn Bồ</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=%C4%90%E1%BB%89nh%20H%C3%B2n%20B%E1%BB%93%20Ph%C6%B0%E1%BB%9Dng%20L%C3%A2m%20Vi%C3%AAn%2C%20c%C3%A1ch%20trung%20t%C3%A2m%20kho%E1%BA%A3ng%2012km%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Phường Lâm Viên, cách trung tâm khoảng 12km</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Leo núi lên siêu đẹp.</span>
+<span style="margin-top: 2px; font-size: 12px; color: #2a2520; background: #f5b301; padding: 5px 7px; line-height: 1.4">DỰ PHÒNG: Tiệm cà phê Vùng Ngoại Ô · Đường Đình Đa Quý, Xuân Trường</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~9 km · ~30 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=%C4%90%E1%BB%89nh%20H%C3%B2n%20B%E1%BB%93%2C%20Ph%C6%B0%E1%BB%9Dng%20L%C3%A2m%20Vi%C3%AAn%2C%20c%C3%A1ch%20trung%20t%C3%A2m%20kho%E1%BA%A3ng%2012km%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=B%C3%A1nh%20M%C3%AC%20Ch%E1%BA%A3o%20%E2%80%93%20Bami%20C%C3%B4%20B%E1%BB%91ng%2C%2097%20Nguy%E1%BB%85n%20L%C6%B0%C6%A1ng%20B%E1%BA%B1ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 08:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn sáng</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Bánh Mì Chảo – Bami Cô Bống</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=B%C3%A1nh%20M%C3%AC%20Ch%E1%BA%A3o%20%E2%80%93%20Bami%20C%C3%B4%20B%E1%BB%91ng%2097%20Nguy%E1%BB%85n%20L%C6%B0%C6%A1ng%20B%E1%BA%B1ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">97 Nguyễn Lương Bằng, Xuân Hương</span></a>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~4 km · ~15 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=B%C3%A1nh%20M%C3%AC%20Ch%E1%BA%A3o%20%E2%80%93%20Bami%20C%C3%B4%20B%E1%BB%91ng%2C%2097%20Nguy%E1%BB%85n%20L%C6%B0%C6%A1ng%20B%E1%BA%B1ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Nh%C3%A0%20Nh%C3%A3n%20coffee%2C%2051/4%20Quang%20Trung%2C%20L%C3%A2m%20Vi%C3%AAn%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 09:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Cà phê</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Nhà Nhãn coffee</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Nh%C3%A0%20Nh%C3%A3n%20coffee%2051/4%20Quang%20Trung%2C%20L%C3%A2m%20Vi%C3%AAn%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">51/4 Quang Trung, Lâm Viên</span></a>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~6 km · ~20 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Nh%C3%A0%20Nh%C3%A3n%20coffee%2C%2051/4%20Quang%20Trung%2C%20L%C3%A2m%20Vi%C3%AAn%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Pizza%20Stop%2C%2076%20Ho%C3%A0ng%20V%C4%83n%20Th%E1%BB%A5%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 11:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn trưa</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Pizza Stop</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Pizza%20Stop%2076%20Ho%C3%A0ng%20V%C4%83n%20Th%E1%BB%A5%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">76 Hoàng Văn Thụ, Cam Ly</span></a>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~2,5 km · ~10 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Pizza%20Stop%2C%2076%20Ho%C3%A0ng%20V%C4%83n%20Th%E1%BB%A5%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Dinh%20B%E1%BA%A3o%20%C4%90%E1%BA%A1i%20III%2C%201%20Tri%E1%BB%87u%20Vi%E1%BB%87t%20V%C6%B0%C6%A1ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 13:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Chụp ảnh</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Dinh Bảo Đại III</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Dinh%20B%E1%BA%A3o%20%C4%90%E1%BA%A1i%20III%201%20Tri%E1%BB%87u%20Vi%E1%BB%87t%20V%C6%B0%C6%A1ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">1 Triệu Việt Vương, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Đi Dinh xong thuê đồ nha mấy mom.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~3,5 km · ~12 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Dinh%20B%E1%BA%A3o%20%C4%90%E1%BA%A1i%20III%2C%201%20Tri%E1%BB%87u%20Vi%E1%BB%87t%20V%C6%B0%C6%A1ng%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Ch%C3%A1o%20H%C3%A0u%20Ho%C3%A0ng%20H%C3%A0%2C%2084%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Ngh%C4%A9a%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 16:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn nhẹ</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Cháo Hàu Hoàng Hà</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Ch%C3%A1o%20H%C3%A0u%20Ho%C3%A0ng%20H%C3%A0%2084%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Ngh%C4%A9a%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">84 Nguyễn Thị Nghĩa, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Ăn nhẹ nhẹ xong về nhậu.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~2,5 km · ~10 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Ch%C3%A1o%20H%C3%A0u%20Ho%C3%A0ng%20H%C3%A0%2C%2084%20Nguy%E1%BB%85n%20Th%E1%BB%8B%20Ngh%C4%A9a%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 17:00</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Về nhà</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Nhà chung · Wind In Dalat</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Wind%20In%20Dalat%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">22 Ngô Huy Diễn, Cam Ly</span></a>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>Tại chỗ</strong></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 05 · 18:00</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Nhậuuuu</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Sân vườn nhà chung</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Wind%20In%20Dalat%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">22 Ngô Huy Diễn, Cam Ly</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Cảnh quay dài nhất phim.</span>
+</article>
+</div>
+<div class="sprocket-v run-v"></div>
+</div>
+</div>
+</section>
+<section class="reel" style="position: relative; overflow: hidden; padding: 150px 0 80px">
+<div aria-hidden="true" style="position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: 0.5; -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%)">
+<div class="scene-art">
+
+
+
+
+<svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e1a12"></stop><stop offset="0.4" stop-color="#8a4320"></stop><stop offset="0.62" stop-color="#d98a3c"></stop><stop offset="0.72" stop-color="#f0bd6e"></stop></linearGradient>
+<filter id="glow3" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="34"></feGaussianBlur></filter>
+</defs>
+<rect width="1440" height="800" fill="url(#sky3)"></rect>
+<circle cx="1040" cy="520" r="170" fill="#ffd38a" opacity="0.5" filter="url(#glow3)"></circle>
+<circle cx="1040" cy="530" r="70" fill="#ffe6a8"></circle>
+<g class="floaty" fill="none" stroke="#2e1a12" stroke-width="3" stroke-linecap="round"><path d="M300 240 q12 -12 24 0 q12 -12 24 0"></path><path d="M370 210 q9 -9 18 0 q9 -9 18 0"></path><path d="M420 260 q10 -10 20 0 q10 -10 20 0"></path></g>
+<path d="M0 570 Q360 490 720 550 Q1080 480 1440 540 V800 H0 Z" fill="#5a3018"></path>
+<path d="M0 630 Q720 595 1440 630 V800 H0 Z" fill="#2b1a10"></path>
+<path d="M520 800 L702 612 L738 612 L920 800 Z" fill="#1a110b"></path>
+<path class="dashm" d="M720 616 L720 800" stroke="#f5b301" stroke-width="5" stroke-dasharray="16 16" opacity="0.75"></path>
+<g fill="#1f120b"><polygon points="140,470 100,640 180,640"></polygon><polygon points="230,520 200,650 260,650"></polygon><polygon points="60,520 30,660 90,660"></polygon><polygon points="1290,470 1250,640 1330,640"></polygon><polygon points="1380,500 1346,660 1414,660"></polygon><polygon points="1200,540 1176,646 1224,646"></polygon></g>
+</svg>
+
+</div>
+<div class="leak"></div>
+<div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%)"></div>
+</div>
+<div class="reveal reel-head" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">CUỘN 03</p>
+<h2 class="h2m" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 40px; color: #f2ead8">Đường về</h2>
+<p style="margin: 0; font-size: 14px; color: #e3d9c4">Chủ nhật · 06.12</p>
+<p style="margin: 0; font-size: 13px; color: #e3d9c4">5 cảnh · ~24 km</p>
+</div>
+<div class="reel-film" style="position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 0 20px">
+<div style="display: flex; gap: 14px; background: rgba(10,29,20,0.82); padding: 14px 12px">
+<div class="sprocket-v run-v"></div>
+<div class="frames" style="flex: 1; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding: 6px 0">
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ nhà:</span> <strong>~2 km · ~8 phút</strong></span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 06 · 08:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn sáng</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Bún Miến Ngan Bà Cấn</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=B%C3%BAn%20Mi%E1%BA%BFn%20Ngan%20B%C3%A0%20C%E1%BA%A5n%203%20Ph%C3%B3%20%C4%90%E1%BB%A9c%20Ch%C3%ADnh%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">3 Phó Đức Chính</span></a>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~6,5 km · ~20 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=B%C3%BAn%20Mi%E1%BA%BFn%20Ngan%20B%C3%A0%20C%E1%BA%A5n%2C%203%20Ph%C3%B3%20%C4%90%E1%BB%A9c%20Ch%C3%ADnh%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Nook%20D%C3%A3%20Chi%E1%BA%BFn%2C%20%C4%90%E1%BB%93i%20D%C3%A3%20Chi%E1%BA%BFn%2C%20Xu%C3%A2n%20Tr%C6%B0%E1%BB%9Dng%2C%20c%C3%A1ch%20trung%20t%C3%A2m%20kho%E1%BA%A3ng%206km%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 06 · 09:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe máy</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Cà phê</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Nook Dã Chiến</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Nook%20D%C3%A3%20Chi%E1%BA%BFn%20%C4%90%E1%BB%93i%20D%C3%A3%20Chi%E1%BA%BFn%2C%20Xu%C3%A2n%20Tr%C6%B0%E1%BB%9Dng%2C%20c%C3%A1ch%20trung%20t%C3%A2m%20kho%E1%BA%A3ng%206km%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Đồi Dã Chiến, Xuân Trường, cách trung tâm khoảng 6km</span></a>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~8 km · ~25 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Nook%20D%C3%A3%20Chi%E1%BA%BFn%2C%20%C4%90%E1%BB%93i%20D%C3%A3%20Chi%E1%BA%BFn%2C%20Xu%C3%A2n%20Tr%C6%B0%E1%BB%9Dng%2C%20c%C3%A1ch%20trung%20t%C3%A2m%20kho%E1%BA%A3ng%206km%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 06 · 11:30</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Trả xe</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Trả phòng</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Nhà chung · Wind In Dalat</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=Wind%20In%20Dalat%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">22 Ngô Huy Diễn, Cam Ly</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Trả phòng, trả xe máy.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~5 km · ~15 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Wind%20In%20Dalat%2C%2022%20Ng%C3%B4%20Huy%20Di%E1%BB%85n%2C%20Cam%20Ly%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=L%E1%BA%A9u%20G%C3%A0%20Rau%20L%E1%BB%97%20B%C3%ACnh%2C%20H%E1%BA%BBm%2086%20Khe%20Sanh%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 06 · 12:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Grab</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Ăn trưa</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">Lẩu Gà Rau Lỗ Bình</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=L%E1%BA%A9u%20G%C3%A0%20Rau%20L%E1%BB%97%20B%C3%ACnh%20H%E1%BA%BBm%2086%20Khe%20Sanh%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">Hẻm 86 Khe Sanh, Xuân Hương</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Mở cửa 10:00–22:00.</span>
+</article>
+<article class="frame" style="min-width: 0; background: #f2ead8; padding: 12px 12px 14px; color: #2a2520; display: flex; flex-direction: column; gap: 6px; border-top: 4px solid #2f5a43">
+<div class="leg" style="display: flex; flex-wrap: wrap; gap: 4px 6px; align-items: center; font-size: 11.5px; color: #1f5a3c; border-bottom: 1px dashed #b8ad98; padding-bottom: 6px"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none"><path d="M6 1 V10 M2.5 6.5 L6 10 L9.5 6.5" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg><span><span style="color: #6b5a45">Từ điểm trước:</span> <strong>~2 km · ~7 phút</strong></span><a href="https://www.google.com/maps/dir/?api=1&amp;origin=L%E1%BA%A9u%20G%C3%A0%20Rau%20L%E1%BB%97%20B%C3%ACnh%2C%20H%E1%BA%BBm%2086%20Khe%20Sanh%2C%20Xu%C3%A2n%20H%C6%B0%C6%A1ng%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;destination=An%20Anh%20Limousine%2C%20VP%20%C4%90%C3%A0%20L%E1%BA%A1t%3A%204C%20Yersin%2C%20P.10%20%28x%C3%A1c%20nh%E1%BA%ADn%20%C4%91i%E1%BB%83m%20%C4%91%C3%B3n%20khi%20%C4%91%E1%BA%B7t%20v%C3%A9%29%2C%20%C4%90%C3%A0%20L%E1%BA%A1t&amp;travelmode=two-wheeler" target="_blank" rel="noopener" style="margin-left: auto; color: #1f5a3c; font-weight: 600; white-space: nowrap">Chỉ đường</a></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 6px; flex-wrap: wrap">
+<span class="fstamp" style="font-size: 13px; font-weight: 600; color: #b7410e; white-space: nowrap">'26 12 06 · 15:00</span>
+<span class="tag" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid #6b5a45; color: #4a4036; padding: 2px 6px; white-space: nowrap">Xe khách</span>
+</div>
+<span style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6b5a45">Lên xe về Sài Gòn</span>
+<span class="ft" style="font-size: 16px; font-weight: 600; line-height: 1.3">An Anh Limousine</span>
+<a class="fs" href="https://www.google.com/maps/search/?api=1&amp;query=An%20Anh%20Limousine%20VP%20%C4%90%C3%A0%20L%E1%BA%A1t%3A%204C%20Yersin%2C%20P.10%20%28x%C3%A1c%20nh%E1%BA%ADn%20%C4%91i%E1%BB%83m%20%C4%91%C3%B3n%20khi%20%C4%91%E1%BA%B7t%20v%C3%A9%29%2C%20%C4%90%C3%A0%20L%E1%BA%A1t" target="_blank" rel="noopener" style="display: flex; gap: 5px; align-items: flex-start; font-size: 12.5px; line-height: 1.45; color: #1f5a3c; text-decoration: none"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" style="flex: none; margin-top: 2px"><path d="M6 11 C3 7.6 2 6 2 4.3 A4 4 0 0 1 10 4.3 C10 6 9 7.6 6 11 Z" fill="none" stroke="currentColor" stroke-width="1.3"></path><circle cx="6" cy="4.4" r="1.4" fill="currentColor"></circle></svg><span style="text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px">VP Đà Lạt: 4C Yersin, P.10 (xác nhận điểm đón khi đặt vé)</span></a>
+<span class="fs" style="font-size: 13px; font-style: italic; color: #2a2520; line-height: 1.45">Hết phim.</span>
+</article>
+</div>
+<div class="sprocket-v run-v"></div>
+</div>
+</div>
+</section>
+
+
+
+
+
+
+<section class="reveal sec" style="max-width: 1120px; margin: 0 auto; padding: 24px 20px 24px; display: flex; flex-wrap: wrap; gap: 24px">
+<div class="box" style="flex: 1 1 320px; min-width: 0; border: 1px solid #2f5a43; padding: 28px; display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">PHƯƠNG TIỆN</p>
+<h3 class="h3m" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 30px">Lên xe, xuống xe</h3>
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 14px; line-height: 1.6; color: #cfc4ae">
+<p style="margin: 0"><strong style="color: #f2ead8">Chiều đi:</strong> An Anh Limousine, 22:00 tối T5 03.12, 95 Nguyễn Duy Dương, Q5</p>
+<p style="margin: 0"><strong style="color: #f2ead8">Chiều về:</strong> An Anh Limousine, 15:00 CN 06.12</p>
+<p style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px"><span><strong style="color: #f2ead8">Trong Đà Lạt:</strong> thuê xe máy, buổi tối và ngày cuối đi Grab</span></p>
+</div>
+</div>
+</section>
+
+<footer class="credits" style="max-width: 1120px; margin: 0 auto; padding: 96px 20px 120px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.4em; color: #f5b301">HẾT PHIM</p>
+<p style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: clamp(32px, 5vw, 52px); color: #f2ead8">Hẹn gặp lại ở phần 2.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.9; color: #b8ad98">Đạo diễn: cả nhóm · Kịch bản: Google Sheet · Quay phim: điện thoại ai pin còn nhiều nhất<br>Ảnh thật sẽ được tráng sau ngày 06.12.2026</p>
+</footer>
+
+<span data-show="showVinyl" style="display: none">
+<button type="button" data-action="toggle" aria-label="Chiếu tiếp và bật nhạc" id="vinylBtn" style="position: fixed; right: 14px; bottom: 18px; z-index: 50; width: 96px; height: 104px; padding: 0; border: 0; background: transparent; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 4px">
+<span style="position: relative; width: 84px; height: 84px; display: block; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.55))">
+<svg class="vinyl" id="vinylDisc" width="84" height="84" viewBox="0 0 100 100" aria-hidden="true" style="display: block; animation-play-state: paused">
+<circle cx="50" cy="50" r="48" fill="#141210"></circle>
+<circle cx="50" cy="50" r="44" fill="none" stroke="#2c2620" stroke-width="0.6"></circle><circle cx="50" cy="50" r="40" fill="none" stroke="#2c2620" stroke-width="0.6"></circle><circle cx="50" cy="50" r="36" fill="none" stroke="#2c2620" stroke-width="0.6"></circle><circle cx="50" cy="50" r="32" fill="none" stroke="#2c2620" stroke-width="0.6"></circle><circle cx="50" cy="50" r="28" fill="none" stroke="#2c2620" stroke-width="0.6"></circle><circle cx="50" cy="50" r="24" fill="none" stroke="#2c2620" stroke-width="0.6"></circle>
+<path d="M18 30 A38 38 0 0 1 40 13" fill="none" stroke="#f2ead8" stroke-width="2.4" stroke-linecap="round" opacity="0.18"></path>
+<path d="M82 70 A38 38 0 0 1 60 87" fill="none" stroke="#f2ead8" stroke-width="2" stroke-linecap="round" opacity="0.12"></path>
+<circle cx="50" cy="50" r="17" fill="#b45309"></circle>
+<circle cx="50" cy="50" r="17" fill="none" stroke="#f5b301" stroke-width="1"></circle>
+<text x="50" y="45" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-style="italic" font-weight="700" font-size="6.5" fill="#f7ecd0">Đà Lạt</text>
+<text x="50" y="59" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="4" fill="#f7ecd0" letter-spacing="0.5">33⅓ · 2026</text>
+<circle cx="50" cy="50" r="2" fill="#0f2a1e"></circle>
+</svg>
+<svg width="40" height="56" viewBox="0 0 40 56" aria-hidden="true" id="tonearm" style="position: absolute; right: -10px; top: -10px; transform-origin: 32px 8px;  transform: rotate(-28deg); transition: transform .5s ease">
+<circle cx="32" cy="8" r="5" fill="#cfc4ae" stroke="#3b2a17" stroke-width="1"></circle>
+<path d="M32 8 L22 44" stroke="#cfc4ae" stroke-width="2.6" stroke-linecap="round"></path>
+<rect x="17" y="42" width="9" height="6" rx="1.5" fill="#3b2a17" transform="rotate(15 21 45)"></rect>
+</svg>
+</span>
+<span style="font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: #f5b301; background: rgba(10,29,20,0.88); padding: 3px 8px; border-radius: 999px; white-space: nowrap"><span id="vinylHint">Chạm để chiếu tiếp</span></span>
+</button>
+</span>
+<span data-show="hasMusic" style="display: none">
+<audio id="bgm" src="assets/dalat-vinyl.mp3" preload="auto" loop="loop"></audio>
+</span>
+
+</main>
+<script>
+(function () {
+  var TARGET = new Date('2026-12-03T22:00:00+07:00').getTime();
+  var SHOW_SECONDS = 150;
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function show(name, on) {
+    document.querySelectorAll('[data-show="' + name + '"]').forEach(function (el) { el.style.display = on ? 'contents' : 'none'; });
+  }
+  function tick() {
+    var diff = Math.max(0, TARGET - Date.now());
+    var d = Math.floor(diff / 86400000), h = Math.floor(diff / 3600000) % 24, m = Math.floor(diff / 60000) % 60, s = Math.floor(diff / 1000) % 60;
+    var map = { d: d, h: h, m: m, s: s };
+    document.querySelectorAll('[data-cd]').forEach(function (el) { el.textContent = pad(map[el.getAttribute('data-cd')]); });
+    var started = diff === 0;
+    show('started', started); show('counting', !started);
+    var lead = document.getElementById('leader');
+    if (lead) lead.textContent = started ? '0' : String(3 - (s % 3));
+  }
+  tick(); setInterval(tick, 1000);
+
+  var playing = false, raf = null, acc = 0, last = 0, speed = 40;
+  var audio = document.getElementById('bgm');
+  var scroller = document.scrollingElement || document.documentElement;
+  function atBottom() { return scroller.scrollTop + window.innerHeight >= scroller.scrollHeight - 4; }
+  function render() {
+    show('playing', playing); show('notPlaying', !playing);
+    show('showVinyl', playing || everPlayed);
+    var b = document.getElementById('playBtn'); if (b) b.setAttribute('aria-pressed', playing ? 'true' : 'false');
+    var l = document.getElementById('playLabel'); if (l) l.textContent = playing ? 'TẠM DỪNG' : 'BẮT ĐẦU CHIẾU';
+    var v = document.getElementById('vinylDisc'); if (v) v.style.animationPlayState = playing ? 'running' : 'paused';
+    var a = document.getElementById('tonearm'); if (a) a.style.transform = playing ? 'rotate(0deg)' : 'rotate(-28deg)';
+    var vb = document.getElementById('vinylBtn'); if (vb) vb.setAttribute('aria-label', playing ? 'Tạm dừng chiếu và nhạc' : 'Chiếu tiếp và bật nhạc');
+    var vh = document.getElementById('vinylHint'); if (vh) vh.textContent = playing ? 'Chạm để dừng' : 'Chạm để chiếu tiếp';
+  }
+  var everPlayed = false;
+  function step(t) {
+    var dt = Math.min(0.1, (t - last) / 1000); last = t;
+    acc += speed * dt;
+    if (acc >= 1) { var n = Math.floor(acc); acc -= n; scroller.scrollTop += n; }
+    if (atBottom()) { stop(); return; }
+    raf = requestAnimationFrame(step);
+  }
+  function start() {
+    if (atBottom()) scroller.scrollTop = 0;
+    speed = Math.max(20, (scroller.scrollHeight - window.innerHeight) / SHOW_SECONDS);
+    acc = 0; last = performance.now(); raf = requestAnimationFrame(step);
+    if (audio) { var p = audio.play(); if (p && p.catch) p.catch(function () {}); }
+    playing = true; everPlayed = true; render();
+  }
+  function stop() {
+    if (raf) cancelAnimationFrame(raf); raf = null;
+    if (audio) audio.pause();
+    playing = false; render();
+  }
+  document.querySelectorAll('[data-action="toggle"]').forEach(function (btn) {
+    btn.addEventListener('click', function () { playing ? stop() : start(); });
+  });
+  function interrupt(e) {
+    if (e && e.target && e.target.closest && e.target.closest('button')) return;
+    if (raf) stop();
+  }
+  window.addEventListener('wheel', interrupt, { passive: true });
+  window.addEventListener('touchstart', interrupt, { passive: true });
+  render();
+})();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bản đồ hành trình · Dalat ngày bình thường!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&amp;family=Playfair+Display:ital,wght@0,700;1,400;1,600;1,700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0f2a1e}
+a{color:#1f5a3c}a:hover{color:#0f2a1e}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-4%)}60%{transform:translate(-3%,-2%)}80%{transform:translate(2%,4%)}100%{transform:translate(0,0)}}
+@keyframes ink{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+@keyframes seal{0%{transform:scale(0) rotate(-30deg)}70%{transform:scale(1.15) rotate(4deg)}100%{transform:scale(1) rotate(0)}}
+.pin{transition:opacity .3s ease, transform .2s ease}
+.pin:hover{transform:scale(1.15)}
+@media (prefers-reduced-motion:no-preference){
+.grain{animation:grain .8s steps(1) infinite}
+.inkline{stroke-dasharray:900;animation:ink 2.6s ease-out both}
+.pin{animation:seal .5s ease-out both}
+}
+@media (max-width:640px){
+.wrap{padding-left:12px !important;padding-right:12px !important}
+.h1m{font-size:34px !important}
+}
+</style>
+</head>
+<body>
+<main style="position: relative; min-height: 100vh; background: #0f2a1e; color: #f2ead8; font-family: 'IBM Plex Mono', ui-monospace, monospace; overflow-x: clip">
+<div aria-hidden="true" style="position: fixed; inset: 0; pointer-events: none; overflow: hidden; z-index: 0">
+<img src="assets/pine-fog.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: sepia(0.38) saturate(0.7) contrast(1.08) brightness(0.86)">
+<div style="position: absolute; inset: 0; background: #efe1bf; mix-blend-mode: soft-light; opacity: 0.55"></div>
+<div style="position: absolute; inset: 0; background: rgba(11,34,24,0.72)"></div>
+<div class="grain" style="position: absolute; inset: -20%; opacity: 0.15"><svg width="100%" height="100%"><filter id="mapgrain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#mapgrain)"></rect></svg></div>
+</div>
+
+<div class="wrap" style="position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 32px 20px 72px; display: flex; flex-direction: column; gap: 20px">
+
+<a href="index.html" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #f5b301; font-size: 14px; text-decoration: none">
+<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 L5 8 L10 13" fill="none" stroke="currentColor" stroke-width="1.8"></path></svg>
+Về trang phim
+</a>
+
+<header style="display: flex; flex-direction: column; gap: 8px">
+<p style="margin: 0; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">BẢN ĐỒ HÀNH TRÌNH</p>
+<h1 class="h1m" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 48px; line-height: 1.05; color: #f2ead8; text-shadow: 0 2px 14px rgba(0,0,0,.6)">Ba ngày, một vòng Đà Lạt</h1>
+<p style="margin: 0; font-size: 14px; line-height: 1.6; color: #e3d9c4">Mỗi màu mực là một ngày, số là thứ tự đi trong ngày. Bấm vào con dấu để mở Google Maps.</p>
+</header>
+
+<div role="group" aria-label="Lọc theo ngày" style="display: flex; flex-wrap: wrap; gap: 8px">
+<div id="filters-host" style="display: contents"></div>
+</div>
+
+<figure style="margin: 0; padding: 0; box-shadow: 0 14px 34px rgba(0,0,0,0.55)">
+<div style="position: relative; width: 100%; aspect-ratio: 360 / 470; overflow: hidden">
+<svg viewBox="0 0 360 470" width="100%" height="100%" style="position: absolute; inset: 0; display: block" role="img" aria-label="Bản đồ cổ vẽ tay của Đà Lạt với lộ trình ba ngày">
+<defs>
+<radialGradient id="parch" cx="50%" cy="45%" r="75%"><stop offset="0" stop-color="#f3e6c4"></stop><stop offset="0.65" stop-color="#e8d3a2"></stop><stop offset="1" stop-color="#c9a66b"></stop></radialGradient>
+<radialGradient id="stain" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#b98e4f" stop-opacity="0.28"></stop><stop offset="1" stop-color="#b98e4f" stop-opacity="0"></stop></radialGradient>
+<filter id="paper" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7"></feTurbulence><feColorMatrix type="matrix" values="0 0 0 0 0.45  0 0 0 0 0.33  0 0 0 0 0.18  0 0 0 0.16 0"></feColorMatrix></filter>
+<path id="pine" d="M0 -8 L4 -2 L2 -2 L5 4 L-5 4 L-2 -2 L-4 -2 Z"></path>
+</defs>
+<rect width="360" height="470" fill="url(#parch)"></rect>
+<rect width="360" height="470" filter="url(#paper)"></rect>
+<circle cx="70" cy="230" r="60" fill="url(#stain)"></circle>
+<circle cx="300" cy="420" r="50" fill="url(#stain)"></circle>
+<circle cx="290" cy="90" r="40" fill="url(#stain)"></circle>
+
+<rect x="7" y="7" width="346" height="456" fill="none" stroke="#4a3520" stroke-width="2"></rect>
+<rect x="12" y="12" width="336" height="446" fill="none" stroke="#4a3520" stroke-width="0.7"></rect>
+<g fill="none" stroke="#4a3520" stroke-width="0.9">
+<path d="M12 28 Q22 22 28 12 M332 12 Q338 22 348 28 M12 442 Q22 448 28 458 M332 458 Q338 448 348 442"></path>
+</g>
+
+<g fill="none" stroke="#4a3520" stroke-width="1" opacity="0.85">
+<path d="M58 22 Q60 14 72 16 L288 16 Q300 14 302 22 L300 66 Q298 74 288 72 L72 72 Q60 74 58 66 Z" fill="#f2e2bb"></path>
+<path d="M58 30 L42 34 L50 44 L42 56 L60 58 M302 30 L318 34 L310 44 L318 56 L300 58" fill="#e6cf9c"></path>
+</g>
+<text x="180" y="47" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-style="italic" font-weight="700" font-size="24" fill="#3b2a17">Đà Lạt</text>
+<text x="180" y="63" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-style="italic" font-size="9.5" fill="#5a4128" letter-spacing="1.5">Lộ trình ba ngày · Anno MMXXVI</text>
+
+<g fill="none" stroke="#6b4f2c" stroke-width="1.1" stroke-linejoin="round">
+<path d="M196 160 L214 128 L228 146 L244 112 L262 142 L276 124 L296 160"></path>
+<path d="M214 128 L210 138 M214 128 L218 140 M244 112 L240 124 M244 112 L249 126 M276 124 L272 134 M276 124 L281 136" stroke-width="0.8"></path>
+<path d="M36 336 Q48 320 60 336 M56 332 Q70 314 84 332 M80 338 Q90 326 100 338"></path>
+<path d="M300 362 Q312 348 324 362 M318 360 Q332 344 346 360"></path>
+</g>
+<g font-family="IBM Plex Mono, monospace" font-size="7" letter-spacing="2" fill="#7a5c35">
+<text x="270" y="172" text-anchor="middle">LÂM VIÊN</text>
+<text x="62" y="312" text-anchor="middle">TÀ NUNG</text>
+<text x="322" y="374" text-anchor="middle">XUÂN TRƯỜNG</text>
+</g>
+
+<g fill="#4f5b3a" opacity="0.75">
+<use href="#pine" x="44" y="132"></use><use href="#pine" x="56" y="140"></use><use href="#pine" x="70" y="130"></use><use href="#pine" x="84" y="142"></use><use href="#pine" x="62" y="156"></use><use href="#pine" x="98" y="128"></use>
+<use href="#pine" x="300" y="196"></use><use href="#pine" x="314" y="206"></use><use href="#pine" x="328" y="194"></use><use href="#pine" x="320" y="226"></use><use href="#pine" x="336" y="240"></use>
+<use href="#pine" x="60" y="410"></use><use href="#pine" x="74" y="420"></use><use href="#pine" x="100" y="440"></use><use href="#pine" x="120" y="428"></use>
+<use href="#pine" x="270" y="410"></use><use href="#pine" x="284" y="424"></use><use href="#pine" x="300" y="440"></use><use href="#pine" x="250" y="436"></use>
+<use href="#pine" x="110" y="190"></use><use href="#pine" x="122" y="176"></use><use href="#pine" x="96" y="236"></use><use href="#pine" x="88" y="262"></use>
+</g>
+
+<polygon points="183.4,264.7 197.8,250 215.2,247.1 233.4,256.5 240.7,271.5 235.8,283.4 221.8,287.5 200.6,278.5" fill="#b9c3ad" stroke="#4a3520" stroke-width="1.2"></polygon>
+<g fill="none" stroke="#5f6f5a" stroke-width="0.7" opacity="0.8">
+<path d="M196 260 q4 -3 8 0 q4 3 8 0 M214 256 q4 -3 8 0 q4 3 8 0 M200 270 q4 -3 8 0 q4 3 8 0 q4 -3 8 0 M218 278 q4 -3 8 0 q4 3 8 0"></path>
+</g>
+<text x="212" y="244" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-style="italic" font-size="8.5" fill="#3f4f3a">Hồ Xuân Hương</text>
+
+<path class="inkline" id="route-d1" d="" fill="none" stroke="#a16207" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-op="o1" opacity="0.9"></path>
+<path class="inkline" id="route-d2" d="" fill="none" stroke="#8b1e2d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-op="o2" opacity="0.9" style="animation-delay: .3s"></path>
+<path id="route-d2b" d="" fill="none" stroke="#8b1e2d" stroke-width="1.4" stroke-dasharray="2 4" stroke-linecap="round" data-op="o2" opacity="0.9"></path>
+<path class="inkline" id="route-d3" d="" fill="none" stroke="#1e3a6e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" data-op="o3" opacity="0.9" style="animation-delay: .6s"></path>
+
+<g transform="translate(58 432)" fill="#4a3520" stroke="#4a3520">
+<circle r="20" fill="none" stroke-width="0.8"></circle>
+<circle r="15" fill="none" stroke-width="0.5"></circle>
+<path d="M0 -24 L4 -4 L0 0 L-4 -4 Z" stroke="none"></path>
+<path d="M0 24 L4 4 L0 0 L-4 4 Z" fill="#f2e2bb" stroke-width="0.7"></path>
+<path d="M24 0 L4 4 L0 0 L4 -4 Z" fill="#f2e2bb" stroke-width="0.7"></path>
+<path d="M-24 0 L-4 4 L0 0 L-4 -4 Z" fill="#f2e2bb" stroke-width="0.7"></path>
+<text y="-27" text-anchor="middle" font-family="Playfair Display, Georgia, serif" font-size="9" font-weight="700" stroke="none">B</text>
+</g>
+<text x="346" y="452" text-anchor="end" font-family="Playfair Display, Georgia, serif" font-style="italic" font-size="8" fill="#5a4128">Không theo tỉ lệ</text>
+</svg>
+
+<div id="labels-host" style="display: contents"></div>
+
+<a id="homePin" href="#" target="_blank" rel="noopener" title="Nhà chung · 22 Ngô Huy Diễn" aria-label="Nhà chung, 22 Ngô Huy Diễn, mở Google Maps" style="position: absolute;  width: 26px; height: 26px; margin: -13px 0 0 -13px; display: flex; align-items: center; justify-content: center; z-index: 3">
+<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M3 13 L13 4 L23 13 L20 13 L20 22 L6 22 L6 13 Z" fill="#f2e2bb" stroke="#3b2a17" stroke-width="1.6" stroke-linejoin="round"></path><rect x="11" y="15" width="4" height="7" fill="#3b2a17"></rect></svg>
+</a>
+
+<div id="pins-host" style="display: contents"></div>
+</div>
+</figure>
+
+<div id="days-host" style="display: contents"></div>
+
+<a href="index.html" style="align-self: center; display: inline-flex; align-items: center; min-height: 44px; padding: 10px 18px; border: 1.5px solid #f5b301; color: #f5b301; font-size: 14px; font-weight: 600; text-decoration: none">Quay lại trang phim</a>
+</div>
+</main>
+<script>
+(function () {
+var SEL = 0;
+var TPL = {"filters": "<button type=\"button\" data-day=\"{{b.n}}\" aria-pressed=\"{{b.pressed}}\" style=\"min-height: 44px; padding: 8px 14px; border: 1.5px solid {{b.ring}}; background: {{b.bg}}; color: #f2ead8; font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px\">\n<span style=\"width: 12px; height: 12px; border-radius: 50%; background: {{b.color}}; border: 1.5px solid #f2ead8\"></span>{{b.label}}\n</button>\n", "labels": "<span aria-hidden=\"true\" style=\"position: absolute; left: {{l.left}}; top: {{l.top}}; transform: {{l.tf}}; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 600; font-size: 11px; line-height: 1; color: #3b2a17; white-space: nowrap; pointer-events: none; opacity: {{l.op}}; text-shadow: 0 0 3px #f3e6c4, 0 0 3px #f3e6c4\">{{l.text}}</span>\n", "pins": "<a class=\"pin\" href=\"{{p.url}}\" target=\"_blank\" rel=\"noopener\" title=\"{{p.title}}\" aria-label=\"{{p.aria}}\" style=\"position: absolute; left: {{p.left}}; top: {{p.top}}; width: 22px; height: 22px; margin: -11px 0 0 -11px; border-radius: 50%; background: {{p.color}}; color: #f7ecd0; box-shadow: 0 0 0 2px #f3e6c4, 0 0 0 3.5px {{p.color}}, 0 2px 4px 3px rgba(60,40,20,0.35); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 12px; font-weight: 700; text-decoration: none; opacity: {{p.op}}; z-index: {{p.z}}; animation-delay: {{p.delay}}\">{{p.num}}</a>\n", "day": "<section style=\"background: #efe3c6; color: #2a2520; border-top: 5px solid {{d.color}}; padding: 18px 16px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 8px 22px rgba(0,0,0,0.4)\">\n<div style=\"display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin-bottom: 8px\">\n<h2 style=\"margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 26px; color: #3b2a17\">{{d.title}}</h2>\n<span style=\"font-size: 13px; color: #5a4128\">{{d.sub}}</span>\n</div>\n{{ROWS}}\n</section>\n", "row": "<a href=\"{{r.url}}\" target=\"_blank\" rel=\"noopener\" style=\"display: flex; align-items: flex-start; gap: 12px; min-height: 44px; padding: 8px 2px; border-top: 1px dashed #b8a57c; color: #2a2520; text-decoration: none\">\n<span style=\"flex: none; width: 26px; height: 26px; border-radius: {{r.radius}}; background: {{r.badge}}; color: #f7ecd0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', Georgia, serif; font-size: 13px; font-weight: 700\">{{r.num}}</span>\n<span style=\"display: flex; flex-direction: column; gap: 2px; min-width: 0\">\n<span style=\"font-size: 12px; color: #8a4a12\">{{r.time}}</span>\n<span style=\"font-size: 15px; font-weight: 600; line-height: 1.3\">{{r.name}}</span>\n<span style=\"font-size: 12px; color: #5a4a35; line-height: 1.45\">{{r.addr}}</span>\n</span>\n</a>\n"};
+function esc(v) { return String(v == null ? '' : v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function fill(tpl, name, obj) { return tpl.replace(/\{\{\s*([\w.]+)\s*\}\}/g, function (m, k) { var parts = k.split('.'); if (parts[0] !== name) return m; var v = obj; for (var i = 1; i < parts.length; i++) v = v == null ? '' : v[parts[i]]; return esc(v); }); }
+function compute() {
+    const W = 360, H = 470;
+    const gm = (q) => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q + ', Đà Lạt');
+    // x, y: hand-placed on the antique sheet (directions follow real coordinates, distances do not)
+    // lx, ly: label offset; a: label alignment (s = start, m = middle, e = end)
+    const P = {
+      home: { n: 'Nhà chung · Wind In Dalat', a: '22 Ngô Huy Diễn, Cam Ly', x: 128, y: 283, lab: 'Nhà chung', lx: 0, ly: -20, al: 'm' },
+      ben: { n: 'Bến xe An Anh', a: '4C Yersin, P.10 (xác nhận khi đặt vé)', x: 250, y: 294, lab: 'Bến xe', lx: 14, ly: 0, al: 's' },
+      phuonglan: { n: 'Phượng Lan 2009', a: 'Lô 5 Hoàng Văn Thụ, P.4', x: 146, y: 316, lab: 'Phượng Lan', lx: 0, ly: 22, al: 'm', url: 'https://maps.app.goo.gl/rjMjZNR5pUYAHWdS9' },
+      quyen: { n: 'Quyen.haus', a: '360/30 Phan Đình Phùng', x: 148, y: 214, lab: 'Quyen.haus', lx: -15, ly: 0, al: 'e' },
+      grove: { n: 'Romantic Grove', a: 'Hẻm 32 Đường 3/4', x: 184, y: 420, lab: 'Romantic Grove', lx: 15, ly: 0, al: 's' },
+      dinh: { n: 'Dinh Bảo Đại III', a: '1 Triệu Việt Vương', x: 145, y: 364, lab: 'Dinh Bảo Đại III', lx: -15, ly: 0, al: 'e' },
+      pacho: { n: 'Pacho Pocha', a: '63A An Bình', x: 172, y: 392, lab: 'Pacho Pocha', lx: 15, ly: 0, al: 's' },
+      qt: { n: 'Quảng trường Lâm Viên', a: 'Trần Quốc Toản', x: 214, y: 318, lab: 'Quảng trường', lx: 0, ly: 21, al: 'm' },
+      honbo: { n: 'Đỉnh Hòn Bồ', a: 'P. Lâm Viên, cách trung tâm ~12 km', x: 244, y: 104, lab: 'Đỉnh Hòn Bồ', lx: 15, ly: 0, al: 's' },
+      ngoaio: { n: 'Vùng Ngoại Ô (dự phòng)', a: 'Đường Đình Đa Quý, Xuân Trường', x: 322, y: 330, lab: 'Vùng Ngoại Ô', lx: -2, ly: 22, al: 'm' },
+      bami: { n: 'Bami Cô Bống', a: '97 Nguyễn Lương Bằng', x: 176, y: 204, lab: 'Bami Cô Bống', lx: 0, ly: -19, al: 'm' },
+      nhan: { n: 'Nhà Nhãn coffee', a: '51/4 Quang Trung', x: 261, y: 256, lab: 'Nhà Nhãn', lx: 15, ly: 0, al: 's' },
+      pizza: { n: 'Pizza Stop', a: '76 Hoàng Văn Thụ, Cam Ly', x: 100, y: 300, lab: 'Pizza Stop', lx: -15, ly: 0, al: 'e' },
+      mongo: { n: 'Mongoland', a: 'Tổ 16, thôn 1, Tà Nung', x: 42, y: 354, lab: 'Mongoland', lx: 4, ly: 23, al: 'm' },
+      chao: { n: 'Cháo Hàu Hoàng Hà', a: '84 Nguyễn Thị Nghĩa', x: 198, y: 232, lab: 'Cháo hàu', lx: 15, ly: 0, al: 's' },
+      bacan: { n: 'Bún Miến Ngan Bà Cấn', a: '3 Phó Đức Chính', x: 168, y: 264, lab: 'Bà Cấn', lx: 0, ly: 21, al: 'm' },
+      nook: { n: 'Nook Dã Chiến', a: 'Đồi Dã Chiến, Xuân Trường', x: 304, y: 307, lab: 'Nook', lx: 14, ly: 0, al: 's' },
+      lau: { n: 'Lẩu Gà Rau Lỗ Bình', a: 'Hẻm 86 Khe Sanh, Xuân Hương', x: 248, y: 353, lab: 'Lẩu gà Lỗ Bình', lx: -15, ly: 0, al: 'e' }
+    };
+    Object.keys(P).forEach((k) => { const p = P[k]; p.url = p.url || gm(p.n.replace(' (dự phòng)', '') + ' ' + p.a); });
+    const pct = (v, t) => (v / t * 100).toFixed(2) + '%';
+    const DAYS = [
+      { n: 1, color: '#a16207', title: 'Ngày 1', sub: 'Thứ Sáu 04.12 · ~50 km',
+        route: ['ben', 'home', 'phuonglan', 'quyen', 'grove', 'home', 'mongo', 'home', 'pacho', 'qt', 'home'],
+        rows: [['ben', '', '06:00 · Xuống xe'], ['home', 'H', '06:00 · Về nhà gửi đồ'], ['phuonglan', 1, '07:00 · Ăn sáng'], ['quyen', 2, '08:00 · Cà phê'], ['grove', 3, '10:00 · Cà phê, 12:00 ăn trưa'], ['home', 'H', '14:00 · Nhận phòng, thay đồ'], ['mongo', 4, '15:00 · Chụp ảnh'], ['home', 'H', '17:00 · Thay đồ'], ['pacho', 5, '18:00 · Ăn tối'], ['qt', 6, '20:00 · Đi dạo']] },
+      { n: 2, color: '#8b1e2d', title: 'Ngày 2', sub: 'Thứ Bảy 05.12 · ~39 km',
+        route: ['home', 'honbo', 'bami', 'nhan', 'pizza', 'dinh', 'chao', 'home'], backup: ['home', 'ngoaio'],
+        rows: [['honbo', 1, '04:00 · Săn mây'], ['ngoaio', '1b', '04:00 · Dự phòng săn mây'], ['bami', 2, '08:00 · Ăn sáng'], ['nhan', 3, '09:00 · Cà phê'], ['pizza', 4, '11:00 · Ăn trưa'], ['dinh', 5, '13:00 · Chụp ảnh'], ['chao', 6, '16:00 · Ăn nhẹ'], ['home', 'H', '17:00 · Về nhà nhậu']] },
+      { n: 3, color: '#1e3a6e', title: 'Ngày 3', sub: 'Chủ nhật 06.12 · ~24 km',
+        route: ['home', 'bacan', 'nook', 'home', 'lau', 'ben'],
+        rows: [['bacan', 1, '08:00 · Ăn sáng'], ['nook', 2, '09:00 · Cà phê'], ['home', 'H', '11:30 · Trả phòng, trả xe'], ['lau', 3, '12:00 · Ăn trưa'], ['ben', 4, '15:00 · Lên xe về Sài Gòn']] }
+    ];
+    const sel = SEL;
+    const vis = (n) => sel === 0 || sel === n;
+    const curve = (ids) => {
+      let d = '';
+      ids.forEach((id, i) => {
+        const p = P[id];
+        if (i === 0) { d += 'M' + p.x + ' ' + p.y; return; }
+        const a = P[ids[i - 1]];
+        const dx = p.x - a.x, dy = p.y - a.y, sgn = i % 2 ? 1 : -1;
+        const cx = (a.x + p.x) / 2 - dy * 0.2 * sgn, cy = (a.y + p.y) / 2 + dx * 0.2 * sgn;
+        d += ' Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + p.x + ' ' + p.y;
+      });
+      return d;
+    };
+    const routes = { d1: curve(DAYS[0].route), d2: curve(DAYS[1].route), d2b: curve(DAYS[1].backup), d3: curve(DAYS[2].route),
+      o1: vis(1) ? 0.9 : 0.12, o2: vis(2) ? 0.9 : 0.12, o3: vis(3) ? 0.9 : 0.12 };
+    const pins = []; const dayOf = {};
+    let k = 0;
+    DAYS.forEach((D) => D.rows.forEach(([id, num]) => {
+      if (!id || num === 'H' || num === '') return;
+      const p = P[id]; k += 1;
+      (dayOf[id] = dayOf[id] || []).push(D.n);
+      pins.push({ left: pct(p.x, W), top: pct(p.y, H), color: D.color, num, url: p.url,
+        title: D.title + ' · ' + num + ' · ' + p.n, aria: D.title + ', điểm ' + num + ': ' + p.n + ', mở Google Maps',
+        op: vis(D.n) ? 1 : 0.15, z: vis(D.n) ? 4 : 2, delay: (0.4 + k * 0.07).toFixed(2) + 's' });
+    }));
+    const tfs = { s: 'translate(0, -50%)', m: 'translate(-50%, -50%)', e: 'translate(-100%, -50%)' };
+    const labels = Object.keys(P).map((id) => {
+      const p = P[id]; const ds = id === 'home' ? [0] : (dayOf[id] || []);
+      const on = id === 'home' || ds.some((n) => vis(n));
+      return { left: pct(p.x + p.lx, W), top: pct(p.y + p.ly, H), tf: tfs[p.al], text: p.lab, op: on ? 1 : 0.3 };
+    });
+    const days = DAYS.map((D) => ({
+      title: D.title, sub: D.sub, color: D.color, show: vis(D.n),
+      rows: D.rows.map(([id, num, t]) => {
+        const p = P[id];
+        return { num: num === 'H' ? '⌂' : (num === '' ? '·' : num), time: t, name: p.n, addr: p.a, url: p.url,
+          badge: num === 'H' || num === '' ? '#3b2a17' : D.color, radius: num === 'H' ? '6px' : '50%' };
+      })
+    }));
+    const fdefs = [[0, 'Tất cả', '#f5b301'], [1, 'Ngày 1', '#a16207'], [2, 'Ngày 2', '#8b1e2d'], [3, 'Ngày 3', '#1e3a6e']];
+    const filters = fdefs.map(([n, label, color]) => ({
+      label, color, pressed: sel === n ? 'true' : 'false', ring: sel === n ? '#f5b301' : '#2f5a43',
+      bg: sel === n ? color : 'rgba(12,36,25,0.75)', n
+    }));
+    const home = { left: pct(P.home.x, W), top: pct(P.home.y, H), url: P.home.url };
+    return { filters, routes, pins, labels, days, home };
+}
+function draw() {
+  var V = compute();
+  document.getElementById('filters-host').innerHTML = V.filters.map(function (b) { return fill(TPL.filters, 'b', b); }).join('');
+  document.getElementById('labels-host').innerHTML = V.labels.map(function (l) { return fill(TPL.labels, 'l', l); }).join('');
+  document.getElementById('pins-host').innerHTML = V.pins.map(function (p) { return fill(TPL.pins, 'p', p); }).join('');
+  document.getElementById('days-host').innerHTML = V.days.filter(function (d) { return d.show; }).map(function (d) {
+    return fill(TPL.day, 'd', d).replace('{{ROWS}}', d.rows.map(function (r) { return fill(TPL.row, 'r', r); }).join(''));
+  }).join('');
+  ['d1','d2','d2b','d3'].forEach(function (k) { var el = document.getElementById('route-' + k); if (el) el.setAttribute('d', V.routes[k]); });
+  document.querySelectorAll('[data-op]').forEach(function (el) { el.setAttribute('opacity', V.routes[el.getAttribute('data-op')]); });
+  var h = document.getElementById('homePin'); h.href = V.home.url; h.style.left = V.home.left; h.style.top = V.home.top;
+  document.querySelectorAll('#filters-host [data-day]').forEach(function (btn) {
+    btn.addEventListener('click', function () { SEL = Number(btn.getAttribute('data-day')); draw(); });
+  });
+}
+draw();
+})();
+</script>
+</body>
+</html>
