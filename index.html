@@ -42,7 +42,7 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 .box{background-color:rgba(12,36,25,0.66);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
 .hero h1,.hero p{text-shadow:0 2px 18px rgba(0,0,0,.6)}
 @keyframes parallax{from{transform:translateY(-6%)}to{transform:translateY(6%)}}
-.scene-art{position:absolute;left:0;right:0;top:-8%;height:116%;filter:sepia(.32) saturate(.82) contrast(1.06) brightness(.9)}
+.scene-art{position:absolute;left:0;right:0;top:0;height:100%}
 .scene-art svg{display:block;width:100%;height:100%}
 .scratches{position:absolute;inset:0;opacity:.4;mix-blend-mode:screen;background-image:linear-gradient(90deg,transparent 0 17%,rgba(242,234,216,.55) 17% 17.08%,transparent 17.08% 61%,rgba(242,234,216,.4) 61% 61.06%,transparent 61.06% 83%,rgba(242,234,216,.3) 83% 83.05%,transparent 83.05%)}
 .leak{position:absolute;inset:0;mix-blend-mode:screen;opacity:.5;background:radial-gradient(circle at 92% 8%,rgba(255,122,26,.55),transparent 38%),radial-gradient(circle at 4% 96%,rgba(245,179,1,.25),transparent 30%)}
@@ -59,8 +59,6 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 .leak{animation:leak 7s ease-in-out infinite}
 .scratches{animation:scratch .45s steps(1) infinite}
 @supports (animation-timeline:view()){
-.scene-art{animation:parallax linear both;animation-timeline:view()}
-.bg-photo{animation:bgpan linear both;animation-timeline:scroll(root)}
 }
 .flicker{animation:flicker 4.5s infinite}
 .sweep{animation:sweep 3s linear infinite}
@@ -116,7 +114,15 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 .spark{animation:twinkle 2.2s ease-in-out infinite}
 .qmark{animation:qglow 2.6s ease-in-out infinite}
 .vinyl{animation:spin 1.8s linear infinite}
-.cgrain{animation:grain .7s steps(1) infinite}
+}
+.noise{background-image:url(assets/noise.png);background-size:128px 128px}
+.grain{will-change:transform}
+.reel{contain:paint}
+@keyframes fadein{from{opacity:.2}to{opacity:1}}
+@media (max-width:640px){
+.drift-1,.drift-2,.drift-3,.floaty,.bob,.roadm,.dashm,.scratches,.leak,.flicker,.run,.run-v{animation:none !important}
+.scratches,.leak{mix-blend-mode:normal;opacity:.18}
+.develop{animation-name:fadein !important}
 }
 </style>
 </head>
@@ -129,15 +135,13 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 </div>
 <div class="fog fog-a" style="position: absolute; top: 18%; left: -30%; width: 160%; height: 34%; background: radial-gradient(ellipse at 30% 50%, rgba(240,236,224,0.5), transparent 60%), radial-gradient(ellipse at 75% 40%, rgba(240,236,224,0.4), transparent 55%)"></div>
 <div class="fog fog-b" style="position: absolute; top: 52%; left: -30%; width: 160%; height: 30%; background: radial-gradient(ellipse at 60% 50%, rgba(240,236,224,0.4), transparent 60%), radial-gradient(ellipse at 15% 60%, rgba(240,236,224,0.3), transparent 50%)"></div>
-<div style="position: absolute; inset: 0; background: #efe1bf; mix-blend-mode: soft-light; opacity: 0.55"></div>
+<div style="position: absolute; inset: 0; background: rgba(239,225,191,0.1)"></div>
 <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,34,24,0.58) 0%, rgba(11,34,24,0.5) 45%, rgba(11,34,24,0.62) 100%)"></div>
 <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 50%, rgba(8,20,14,0.75) 100%)"></div>
 </div>
 <div aria-hidden="true" style="position: fixed; inset: 0; pointer-events: none; z-index: -1; overflow: hidden">
 <div class="scratches"></div>
-<div class="grain" style="position: absolute; inset: -20%; opacity: 0.17">
-<svg width="100%" height="100%"><filter id="filmgrain"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter><rect width="100%" height="100%" filter="url(#filmgrain)"></rect></svg>
-</div>
+<div class="grain noise" style="position: absolute; inset: -20%; opacity: 0.13"></div>
 </div>
 
 <header class="hero" style="max-width: 1120px; margin: 0 auto; padding: 72px 20px 64px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center; justify-content: space-between">
@@ -181,13 +185,13 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 <p style="margin: 0 0 8px; font-size: 13px; letter-spacing: 0.3em; color: #f5b301">AI SẼ THAM DỰ?</p>
 <h2 class="reveal h2m" style="margin: 0 0 28px; font-family: 'Playfair Display', Georgia, serif; font-size: 40px; color: #f2ead8">Dalat 2026</h2>
 <div class="cast" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 20px">
-<svg width="0" height="0" aria-hidden="true" style="position: absolute"><filter id="castgrain"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" stitchTiles="stitch"></feTurbulence><feColorMatrix type="saturate" values="0"></feColorMatrix></filter></svg>
+
 <figure class="pop" style="margin: 0; background: #f2ead8; padding: 10px 10px 12px; color: #2a2520; box-shadow: 0 6px 18px rgba(0,0,0,0.35)">
 <div class="develop" style="position: relative; aspect-ratio: 3 / 4; overflow: hidden; background: #2a241e">
 <img class="filmimg" src="assets/tan.jpg" alt="Ảnh của Tân" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
 <div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 85% 12%, rgba(255,122,26,0.6), transparent 42%)"></div>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
-<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<div class="noise" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.16"></div>
 <span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
 </div>
 <div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 12A</span></div>
@@ -201,7 +205,7 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 <img class="filmimg" src="assets/quan.jpg" alt="Ảnh của Quân" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
 <div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 12% 20%, rgba(255,122,26,0.6), transparent 42%)"></div>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
-<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<div class="noise" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.16"></div>
 <span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
 </div>
 <div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 13A</span></div>
@@ -215,7 +219,7 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 <img class="filmimg" src="assets/my.jpg" alt="Ảnh của My" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
 <div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 88% 18%, rgba(255,122,26,0.6), transparent 42%)"></div>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
-<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<div class="noise" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.16"></div>
 <span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
 </div>
 <div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 14A</span></div>
@@ -229,7 +233,7 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 <img class="filmimg" src="assets/hoa.jpg" alt="Ảnh của Hoa" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
 <div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 10% 10%, rgba(255,122,26,0.6), transparent 42%)"></div>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
-<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<div class="noise" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.16"></div>
 <span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
 </div>
 <div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 15A</span></div>
@@ -243,7 +247,7 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 <img class="filmimg" src="assets/nha.jpg" alt="Ảnh của Nhã" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
 <div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 90% 85%, rgba(255,122,26,0.6), transparent 42%)"></div>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
-<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<div class="noise" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.16"></div>
 <span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
 </div>
 <div aria-hidden="true" style="display: flex; justify-content: space-between; padding-top: 6px; font-size: 9px; letter-spacing: 0.18em; color: #8a7550">KODAK 400<span>▸ 16A</span></div>
@@ -287,7 +291,7 @@ a{color:#f5b301}a:hover{color:#ffd35c}
 <img class="filmimg" src="assets/house.jpg" alt="Mặt tiền căn nhà ở 22 Ngô Huy Diễn lúc chập tối: tường gạch, cổng sắt trắng, cửa sổ sáng đèn vàng, cây thông bên cạnh" style="width: 100%; height: 100%; object-fit: cover; display: block; filter: sepia(0.38) saturate(0.82) contrast(1.14) brightness(0.96) hue-rotate(-6deg)">
 <div aria-hidden="true" style="position: absolute; inset: 0; mix-blend-mode: screen; background: radial-gradient(circle at 92% 6%, rgba(255,122,26,0.55), transparent 40%), radial-gradient(circle at 4% 96%, rgba(245,179,1,0.25), transparent 30%)"></div>
 <div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 52%, rgba(30,20,10,0.6) 100%)"></div>
-<svg class="cgrain" aria-hidden="true" style="position: absolute; inset: -20%; width: 140%; height: 140%; mix-blend-mode: overlay; opacity: 0.45"><rect width="100%" height="100%" filter="url(#castgrain)"></rect></svg>
+<div class="noise" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.16"></div>
 <span aria-hidden="true" style="position: absolute; right: 8px; bottom: 6px; font-size: 13px; font-weight: 600; color: #ff8a2a; text-shadow: 0 0 6px rgba(255,122,26,0.7)">'26 12 04</span>
 <span class="stamp" style="--r: -7deg; position: absolute; top: 12px; left: 10px; transform: rotate(-7deg); border: 2px solid #ff7a1a; color: #ff7a1a; background: rgba(15,42,30,0.75); padding: 3px 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.12em; white-space: nowrap">DỰ KIẾN</span>
 </div>
